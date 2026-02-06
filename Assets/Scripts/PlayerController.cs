@@ -14,14 +14,20 @@ public class PlayerController : NetworkBehaviour
 
     float xRotation = 0f;
 
+    private AttackControl attackControl;
+
     public override void OnNetworkSpawn()
     {
         if (!IsOwner)
         {
             playerCamera.gameObject.SetActive(false);
         }
+        else
+        {
+            attackControl = GetComponent<AttackControl>();
+        }
 
-        Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
@@ -52,7 +58,7 @@ public class PlayerController : NetworkBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
-        
 
+        if (Keyboard.current.eKey.isPressed) attackControl.Attack();
     }
 }
