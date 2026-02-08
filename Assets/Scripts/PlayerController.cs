@@ -6,6 +6,7 @@ public class PlayerController : NetworkBehaviour
 {
     public float speed = 5f;
     public float mouseSensitivity = 2f;
+    public float jumpForce = 2f;
 
     public CharacterController controller;
     public Transform cameraTransform;
@@ -15,6 +16,8 @@ public class PlayerController : NetworkBehaviour
     float xRotation = 0f;
 
     private AttackControl attackControl;
+    private Rigidbody rb;
+    private bool isGrounded = true;
 
     public override void OnNetworkSpawn()
     {
@@ -25,6 +28,7 @@ public class PlayerController : NetworkBehaviour
         else
         {
             attackControl = GetComponent<AttackControl>();
+            rb = GetComponent<Rigidbody>();
         }
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -59,6 +63,28 @@ public class PlayerController : NetworkBehaviour
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
+        if (Keyboard.current.spaceKey.isPressed && isGrounded)
+        {
+            Debug.Log("jumping");
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
         if (Keyboard.current.eKey.isPressed) attackControl.Attack();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }

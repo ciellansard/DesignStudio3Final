@@ -15,7 +15,7 @@ public class CharacterHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit something");
+        //Debug.Log("hit something");
         if (other.gameObject.CompareTag("Harmful"))
         {
             //Debug.Log("hit a harmful object");

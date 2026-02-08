@@ -17,9 +17,10 @@ GameObject:
   - component: {fileID: 2777043184999476646}
   - component: {fileID: 5739170643259444856}
   - component: {fileID: 767175678870173410}
-  m_Layer: 0
+  - component: {fileID: -2638352925261552889}
+  m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   speed: 5
   mouseSensitivity: 10
+  jumpForce: 150.48
   controller: {fileID: 8031476411257728629}
   cameraTransform: {fileID: 4757565953987265212}
   playerCamera: {fileID: 8085728513813116258}
@@ -220,6 +222,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSlot: {fileID: 7503636802253059520}
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+--- !u!54 &-2638352925261552889
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700598883846432805}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1 &3139623814972996091
 GameObject:
   m_ObjectHideFlags: 0
