@@ -6,6 +6,7 @@ public class PlayerController : NetworkBehaviour
 {
     public float speed = 5f;
     public float mouseSensitivity = 2f;
+    public float jumpForce = 2f;
 
     public CharacterController controller;
     public Transform cameraTransform;
@@ -14,24 +15,39 @@ public class PlayerController : NetworkBehaviour
 
     float xRotation = 0f;
 
+    private AttackControl attackControl;
+    private Rigidbody rb;
+    private bool isGrounded = true;
+
     public override void OnNetworkSpawn()
     {
-        //if (!IsOwner)
-        //{
-        //    playerCamera.gameObject.SetActive(false);
-        //}
 
-        Cursor.lockState = CursorLockMode.Locked;
+        if (!IsOwner)
+        {
+            playerCamera.gameObject.SetActive(false);
+        }
+
+        if (!IsOwner)
+        {
+            playerCamera.gameObject.SetActive(false);
+        }
+        else
+        {
+            attackControl = GetComponent<AttackControl>();
+            rb = GetComponent<Rigidbody>();
+        }
+
+            Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (!IsOwner)
-        //{
-        //    return;
-        //}
+        if (!IsOwner)
+        {
+            return;
+        }
 
         Vector2 moveInput = Keyboard.current != null ? new Vector2 
             (
@@ -52,7 +68,29 @@ public class PlayerController : NetworkBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
-        
 
+        if (Keyboard.current.spaceKey.isPressed && isGrounded)
+        {
+            Debug.Log("jumping");
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+        if (Keyboard.current.eKey.isPressed) attackControl.Attack();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
     }
 }
