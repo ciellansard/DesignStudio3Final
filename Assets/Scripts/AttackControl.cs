@@ -9,7 +9,7 @@ public class AttackControl : MonoBehaviour
     [SerializeField]
     private GameObject handSlot;
     public Quaternion targetRotation = Quaternion.Euler(90,0,0);
-    private Coroutine rotateCoroutine;
+    public Coroutine rotateCoroutine;
     bool swingingDown = true;
 
     public void Attack()

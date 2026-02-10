@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,8 +6,6 @@ using UnityEngine.UIElements;
 
 public class EnemyAI : MonoBehaviour
 {
-    
-
     public NavMeshAgent agent;
     public GameObject[] players;
 
@@ -17,23 +15,36 @@ public class EnemyAI : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
-    public float timeBetweenAttacks;
+    public float timeBetweenAttacks = 5f;
     bool alreadyAttacked;
     AttackControl attackScript;
+    CharacterHealth healthScript;
 
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     GameObject closestPlayer;
+    Rigidbody rb;
 
+    [SerializeField]
+    private float deathDelay = 15f;
+    private bool isDead = false;
     private void Awake()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
         attackScript = GetComponent<AttackControl>();
+        healthScript = GetComponent<CharacterHealth>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+        if (isDead) return;
+        if (healthScript.currentHealth <= 0)
+        {
+            isDead = true;
+            Die();
+        }
         closestPlayer = GetNearestPlayer();
 
         //just checks if a player is in range
@@ -92,7 +103,34 @@ public class EnemyAI : MonoBehaviour
         agent.SetDestination(transform.position);
         transform.LookAt(player);
 
-        //I have to add in a delay to the attacks
-        attackScript.Attack();
+        if (alreadyAttacked == false)
+        {
+            attackScript.Attack();
+            alreadyAttacked = true;
+            StartCoroutine(AttackDelay());
+        }
+    }
+
+    private IEnumerator AttackDelay()
+    {
+        yield return new WaitForSeconds(timeBetweenAttacks);
+        alreadyAttacked = false;
+    }
+
+    private void Die()
+    {
+        //isDead = true;
+
+        //i'm trying to make the enemy fall over
+        //agent.enabled = false;
+        rb.constraints = RigidbodyConstraints.None;
+        rb.AddForce(Vector3.up);
+        StartCoroutine(DeathDelay());
+    }
+
+    private IEnumerator DeathDelay()
+    {
+        yield return new WaitForSeconds(deathDelay);
+        //Destroy(gameObject);
     }
 }
