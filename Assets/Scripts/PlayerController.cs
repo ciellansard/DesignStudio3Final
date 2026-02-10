@@ -16,10 +16,10 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner)
-        {
-            playerCamera.gameObject.SetActive(false);
-        }
+        //if (!IsOwner)
+        //{
+        //    playerCamera.gameObject.SetActive(false);
+        //}
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -28,10 +28,10 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!IsOwner)
-        {
-            return;
-        }
+        //if (!IsOwner)
+        //{
+        //    return;
+        //}
 
         Vector2 moveInput = Keyboard.current != null ? new Vector2 
             (
