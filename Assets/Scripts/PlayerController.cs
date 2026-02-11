@@ -6,7 +6,8 @@ public class PlayerController : NetworkBehaviour
 {
     public float speed = 5f;
     public float mouseSensitivity = 2f;
-    public float jumpForce = 2f;
+    public float jumpForce = 1.5f;
+    private float gravity = -9.81f;
 
     public CharacterController controller;
     public Transform cameraTransform;
@@ -17,7 +18,9 @@ public class PlayerController : NetworkBehaviour
 
     private AttackControl attackControl;
     private Rigidbody rb;
-    private bool isGrounded = true;
+    private Vector3 playerGravity;
+    
+    private bool groundedPlayer = true;
 
     public override void OnNetworkSpawn()
     {
@@ -35,9 +38,10 @@ public class PlayerController : NetworkBehaviour
         {
             attackControl = GetComponent<AttackControl>();
             rb = GetComponent<Rigidbody>();
+
         }
 
-            Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
@@ -49,15 +53,30 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
+        groundedPlayer = controller.isGrounded;
+
+        if (groundedPlayer)
+        {
+            // Slight downward velocity to keep grounded stable
+            if (playerGravity.y < -2f)
+                playerGravity.y = -2f;
+        }
+
+
         Vector2 moveInput = Keyboard.current != null ? new Vector2 
             (
                 (Keyboard.current.aKey.isPressed ? -1 : 0) + (Keyboard.current.dKey.isPressed ? 1 : 0),
                 (Keyboard.current.sKey.isPressed ? -1 : 0) + (Keyboard.current.wKey.isPressed ? 1 : 0)
             ) : Vector2.zero;   
-
-        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y;
+        
+        //movement
+        Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y + transform.up * playerGravity.y;
         controller.Move(move * speed * Time.deltaTime);
 
+        //gravity
+        playerGravity.y += gravity * Time.deltaTime;
+
+        //looking around
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
         float mouseX = mouseDelta.x * mouseSensitivity * Time.deltaTime;
@@ -69,28 +88,15 @@ public class PlayerController : NetworkBehaviour
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
 
-        if (Keyboard.current.spaceKey.isPressed && isGrounded)
+        //jumping
+        // referenced https://docs.unity3d.com/ScriptReference/CharacterController.Move.html 
+        if (Keyboard.current.spaceKey.isPressed && groundedPlayer)
         {
-            Debug.Log("jumping");
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
+            //Debug.Log("jumping");
+            playerGravity.y = Mathf.Sqrt(jumpForce * -2f * gravity);         
         }
+
         if (Keyboard.current.eKey.isPressed) attackControl.Attack();
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-    }
 }

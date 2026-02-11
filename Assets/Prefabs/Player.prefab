@@ -104,9 +104,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  speed: 5
-  mouseSensitivity: 10
-  jumpForce: 150.48
+  speed: 10
+  mouseSensitivity: 50
+  jumpForce: 1.5
   controller: {fileID: 8031476411257728629}
   cameraTransform: {fileID: 4757565953987265212}
   playerCamera: {fileID: 8085728513813116258}
@@ -230,7 +230,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2700598883846432805}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
