@@ -15,7 +15,7 @@ public class EnemyAI : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
-    public float timeBetweenAttacks = 5f;
+    public float timeBetweenAttacks = 1f;
     bool alreadyAttacked;
     AttackControl attackScript;
     CharacterHealth healthScript;
@@ -26,11 +26,23 @@ public class EnemyAI : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField]
-    private float deathDelay = 15f;
+    private float deathDelay = 5f;
     private bool isDead = false;
+
+    [SerializeField]
+    private GameObject head;
+    [SerializeField]
+    private GameObject body;
+    [SerializeField]
+    private GameObject hand1;
+    [SerializeField]
+    private GameObject hand2;
+    [SerializeField]
+    private GameObject weapon;
+
     private void Awake()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        UpdatePlayerList();
         agent = GetComponent<NavMeshAgent>();
         attackScript = GetComponent<AttackControl>();
         healthScript = GetComponent<CharacterHealth>();
@@ -45,15 +57,20 @@ public class EnemyAI : MonoBehaviour
             isDead = true;
             Die();
         }
-        closestPlayer = GetNearestPlayer();
 
-        //just checks if a player is in range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        WalkPointUpdateY();
+        if (players.Length > 0) {
+            closestPlayer = GetNearestPlayer();
 
-        if (!playerInAttackRange && !playerInSightRange) Patrol();
-        if (!playerInAttackRange && playerInSightRange) ChasePlayer(closestPlayer.transform);
-        if (playerInAttackRange && playerInSightRange) AttackPlayer(closestPlayer.transform);
+            //just checks if a player is in range
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+
+            if (!playerInAttackRange && !playerInSightRange) Patrol();
+            if (!playerInAttackRange && playerInSightRange) ChasePlayer(closestPlayer.transform);
+            if (playerInAttackRange && playerInSightRange) AttackPlayer(closestPlayer.transform);
+        }
+        else Patrol();
     }
 
     private GameObject GetNearestPlayer()
@@ -69,17 +86,19 @@ public class EnemyAI : MonoBehaviour
                 closest = player;
             }
         }
+        //Debug.Log(closest);
         return closest;
     }
 
     private void Patrol()
     {
+       // Debug.Log("patrolling");
         if (!walkPointSet) SearchWalkPoint();
         else agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        if (distanceToWalkPoint.magnitude < 0.1f) walkPointSet = false;
+        if (distanceToWalkPoint.magnitude < 0.25f) walkPointSet = false;
 
     }
     private void SearchWalkPoint()
@@ -87,18 +106,25 @@ public class EnemyAI : MonoBehaviour
         //creates a random point within the walkPointRange
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
+
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
 
         //there may be a better way to do this than the way the tutorial showed me
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround)) walkPointSet = true;
         
     }
+    private void WalkPointUpdateY()
+    {
+        walkPoint.y = transform.position.y;
+    }
     private void ChasePlayer(Transform player)
     {
+       // Debug.Log("Chasing Player");
         agent.SetDestination(player.position);
     }
     private void AttackPlayer(Transform player)
     {
+        //Debug.Log("Attacking Player");
         //keeps the enemy in place while attacking
         agent.SetDestination(transform.position);
         transform.LookAt(player);
@@ -121,16 +147,65 @@ public class EnemyAI : MonoBehaviour
     {
         //isDead = true;
 
-        //i'm trying to make the enemy fall over
-        //agent.enabled = false;
+        //this is disgusting, i'm so sorry
+
         rb.constraints = RigidbodyConstraints.None;
-        rb.AddForce(Vector3.up);
+        rb.isKinematic = false;
+
+        agent.enabled = false;
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
+        body.transform.SetParent(null, true);
+        Rigidbody bodyRb = body.GetComponent<Rigidbody>();
+        bodyRb.isKinematic = false;
+        bodyRb.useGravity = true;
+        body.GetComponent<CapsuleCollider>().enabled = true;
+
+        head.transform.SetParent(null, true);
+        Rigidbody headRb = head.GetComponent<Rigidbody>();
+        headRb.isKinematic = false;
+        headRb.useGravity = true;
+        head.GetComponent<SphereCollider>().enabled = true;
+
+        hand1.transform.SetParent(null, true);
+        Rigidbody hand1Rb = hand1.GetComponent<Rigidbody>();
+        hand1Rb.isKinematic = false;
+        hand1Rb.useGravity = true;
+        hand1.GetComponent<SphereCollider>().enabled = true;
+
+        hand2.transform.SetParent(null, true);
+        Rigidbody hand2Rb = hand2.GetComponent<Rigidbody>();
+        hand2Rb.isKinematic = false;
+        hand2Rb.useGravity = true;
+        hand2.GetComponent<SphereCollider>().enabled = true;
+
+        weapon.transform.SetParent(null, true);
+        Rigidbody weaponRb = weapon.GetComponent<Rigidbody>();
+        weaponRb.isKinematic = false;
+        weaponRb.useGravity = true;
+        weapon.GetComponent<BoxCollider>().enabled = true;
+
+        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+
+        rb.AddForce(Vector3.back * 1.5f);
         StartCoroutine(DeathDelay());
     }
 
     private IEnumerator DeathDelay()
     {
+        Debug.Log("waiting to destroy objects");
         yield return new WaitForSeconds(deathDelay);
-        //Destroy(gameObject);
+        Destroy(gameObject);
+        Destroy(body);
+        Destroy(head);
+        Destroy(hand1);
+        Destroy(hand2);
+        Destroy(weapon);
+
+    }
+
+    public void UpdatePlayerList()
+    {
+        players = GameObject.FindGameObjectsWithTag("Player");
     }
 }

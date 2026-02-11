@@ -1,6 +1,8 @@
+using System.Linq;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Unity.Netcode;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -21,6 +23,7 @@ public class PlayerController : NetworkBehaviour
     private Vector3 playerGravity;
     
     private bool groundedPlayer = true;
+    private GameObject[] enemies;
 
     public override void OnNetworkSpawn()
     {
@@ -43,7 +46,15 @@ public class PlayerController : NetworkBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyAI>().UpdatePlayerList();
+        }
     }
+
+  
 
     // Update is called once per frame
     void Update()
