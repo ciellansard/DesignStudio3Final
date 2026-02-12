@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -38,7 +40,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private GameObject hand2;
     [SerializeField]
+    private GameObject leg1;
+    [SerializeField]
+    private GameObject leg2;
+    [SerializeField]
+    private GameObject shoulder1;
+    [SerializeField]
+    private GameObject shoulder2;
+    [SerializeField]
     private GameObject weapon;
+    private List<GameObject> bodyParts = new List<GameObject>();
 
     private void Awake()
     {
@@ -47,6 +58,29 @@ public class EnemyAI : MonoBehaviour
         attackScript = GetComponent<AttackControl>();
         healthScript = GetComponent<CharacterHealth>();
         rb = GetComponent<Rigidbody>();
+
+        // Add all existing body parts to a list
+        if (head != null)       bodyParts.Add(head);
+        if (body != null)       bodyParts.Add(body);
+        if (hand1 != null)      bodyParts.Add(hand1);
+        if (hand2 != null)      bodyParts.Add(hand2);
+        if (leg1 != null)       bodyParts.Add(leg1);
+        if (leg2 != null)       bodyParts.Add(leg2);
+        if (shoulder1 != null)  bodyParts.Add(shoulder1);
+        if (shoulder2 != null)  bodyParts.Add(shoulder2);
+        //*/
+        /*
+        bodyParts.Append(head);
+        bodyParts.Append(body);
+        bodyParts.Append(hand1);
+        bodyParts.Append(hand2);
+        bodyParts.Append(leg1);
+        bodyParts.Append(leg2);
+        bodyParts.Append(shoulder1);
+        bodyParts.Append(shoulder2);
+        */
+
+        // Could we just have a public List<GameObject> bodyParts? hmm
     }
 
     private void Update()
@@ -74,7 +108,7 @@ public class EnemyAI : MonoBehaviour
         else Patrol();
 
         // Only let the enemy spin around the vertical axis
-        transform.rotation = Quaternion.Euler(0, gameObject.transform.rotation.y, 0);
+        transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, 0);
     }
 
     private GameObject GetNearestPlayer()
@@ -149,14 +183,11 @@ public class EnemyAI : MonoBehaviour
 
     private void tumbleBodyPart(GameObject part)
     {
-        if (part != null)
-        {
-            part.transform.SetParent(null, true);
-            Rigidbody partRb = body.GetComponent<Rigidbody>();
-            partRb.isKinematic = false;
-            partRb.useGravity = true;
-            part.GetComponent<Collider>().enabled = true;
-        }
+        part.transform.SetParent(null, true);
+        Rigidbody partRb = part.GetComponent<Rigidbody>();
+        partRb.isKinematic = false;
+        partRb.useGravity = true;
+        part.GetComponent<Collider>().enabled = true;
         Debug.Log(part.name);
     }
 
@@ -172,11 +203,8 @@ public class EnemyAI : MonoBehaviour
         agent.enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
 
-        tumbleBodyPart(body);
-        tumbleBodyPart(head);
-        tumbleBodyPart(hand1);
-        tumbleBodyPart(hand2);
-        tumbleBodyPart(weapon);
+        Debug.Log(bodyParts.Count);
+        for (int i = 0; i < bodyParts.Count; i++) tumbleBodyPart(bodyParts[i]);
 
         gameObject.GetComponent<Collider>().enabled = false;
 

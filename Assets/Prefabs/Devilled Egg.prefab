@@ -517,7 +517,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2959467708922500008, guid: d635ce086b7255b41852d0f42a400c91, type: 3}
 --- !u!54 &5427948657719124332
@@ -655,7 +655,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6381457689386579845, guid: d635ce086b7255b41852d0f42a400c91, type: 3}
 --- !u!54 &4561483916491586678
@@ -820,7 +820,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7725599372553224374, guid: d635ce086b7255b41852d0f42a400c91, type: 3}
 --- !u!1 &8350604508730521993
@@ -1162,6 +1162,10 @@ MonoBehaviour:
   body: {fileID: 4804306695732617529}
   hand1: {fileID: 3643875940486664988}
   hand2: {fileID: 8350604508730521993}
+  leg1: {fileID: 7638224991189643342}
+  leg2: {fileID: 5526026643412050745}
+  shoulder1: {fileID: 1308714668975219277}
+  shoulder2: {fileID: 3006116829057481118}
   weapon: {fileID: 5568600340438090715}
 --- !u!1 &8586957328463499126
 GameObject:
@@ -1272,7 +1276,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 0
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8839368762345780380, guid: d635ce086b7255b41852d0f42a400c91, type: 3}
 --- !u!54 &4246733176337549991
