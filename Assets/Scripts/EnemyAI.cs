@@ -52,6 +52,7 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         if (isDead) return;
+
         if (healthScript.currentHealth <= 0)
         {
             isDead = true;
@@ -71,6 +72,9 @@ public class EnemyAI : MonoBehaviour
             if (playerInAttackRange && playerInSightRange) AttackPlayer(closestPlayer.transform);
         }
         else Patrol();
+
+        // Only let the enemy spin around the vertical axis
+        transform.rotation = Quaternion.Euler(0, gameObject.transform.rotation.y, 0);
     }
 
     private GameObject GetNearestPlayer()
@@ -143,6 +147,19 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
+    private void tumbleBodyPart(GameObject part)
+    {
+        if (part != null)
+        {
+            part.transform.SetParent(null, true);
+            Rigidbody partRb = body.GetComponent<Rigidbody>();
+            partRb.isKinematic = false;
+            partRb.useGravity = true;
+            part.GetComponent<Collider>().enabled = true;
+        }
+        Debug.Log(part.name);
+    }
+
     private void Die()
     {
         //isDead = true;
@@ -153,39 +170,15 @@ public class EnemyAI : MonoBehaviour
         rb.isKinematic = false;
 
         agent.enabled = false;
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
 
-        body.transform.SetParent(null, true);
-        Rigidbody bodyRb = body.GetComponent<Rigidbody>();
-        bodyRb.isKinematic = false;
-        bodyRb.useGravity = true;
-        body.GetComponent<CapsuleCollider>().enabled = true;
+        tumbleBodyPart(body);
+        tumbleBodyPart(head);
+        tumbleBodyPart(hand1);
+        tumbleBodyPart(hand2);
+        tumbleBodyPart(weapon);
 
-        head.transform.SetParent(null, true);
-        Rigidbody headRb = head.GetComponent<Rigidbody>();
-        headRb.isKinematic = false;
-        headRb.useGravity = true;
-        head.GetComponent<SphereCollider>().enabled = true;
-
-        hand1.transform.SetParent(null, true);
-        Rigidbody hand1Rb = hand1.GetComponent<Rigidbody>();
-        hand1Rb.isKinematic = false;
-        hand1Rb.useGravity = true;
-        hand1.GetComponent<SphereCollider>().enabled = true;
-
-        hand2.transform.SetParent(null, true);
-        Rigidbody hand2Rb = hand2.GetComponent<Rigidbody>();
-        hand2Rb.isKinematic = false;
-        hand2Rb.useGravity = true;
-        hand2.GetComponent<SphereCollider>().enabled = true;
-
-        weapon.transform.SetParent(null, true);
-        Rigidbody weaponRb = weapon.GetComponent<Rigidbody>();
-        weaponRb.isKinematic = false;
-        weaponRb.useGravity = true;
-        weapon.GetComponent<BoxCollider>().enabled = true;
-
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
 
         rb.AddForce(Vector3.back * 1.5f);
         StartCoroutine(DeathDelay());
