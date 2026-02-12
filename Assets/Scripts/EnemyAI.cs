@@ -68,17 +68,6 @@ public class EnemyAI : MonoBehaviour
         if (leg2 != null)       bodyParts.Add(leg2);
         if (shoulder1 != null)  bodyParts.Add(shoulder1);
         if (shoulder2 != null)  bodyParts.Add(shoulder2);
-        //*/
-        /*
-        bodyParts.Append(head);
-        bodyParts.Append(body);
-        bodyParts.Append(hand1);
-        bodyParts.Append(hand2);
-        bodyParts.Append(leg1);
-        bodyParts.Append(leg2);
-        bodyParts.Append(shoulder1);
-        bodyParts.Append(shoulder2);
-        */
 
         // Could we just have a public List<GameObject> bodyParts? hmm
     }
@@ -203,7 +192,6 @@ public class EnemyAI : MonoBehaviour
         agent.enabled = false;
         gameObject.GetComponent<Collider>().enabled = false;
 
-        Debug.Log(bodyParts.Count);
         for (int i = 0; i < bodyParts.Count; i++) tumbleBodyPart(bodyParts[i]);
 
         gameObject.GetComponent<Collider>().enabled = false;
@@ -217,12 +205,7 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("waiting to destroy objects");
         yield return new WaitForSeconds(deathDelay);
         Destroy(gameObject);
-        Destroy(body);
-        Destroy(head);
-        Destroy(hand1);
-        Destroy(hand2);
-        Destroy(weapon);
-
+        for (int i = 0; i < bodyParts.Count; i++) Destroy(bodyParts[i]);
     }
 
     public void UpdatePlayerList()
