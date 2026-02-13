@@ -40,14 +40,14 @@ public class AttackControl : MonoBehaviour
             yield return null;
         }
         //rotate back up to rest
-        while (Quaternion.Angle(handSlot.transform.localRotation, quaternion.identity) > 0.1f)
+        while (Quaternion.Angle(handSlot.transform.localRotation, restPosition) > 0.1f)
         {
             //Debug.Log("swinging up");
             handSlot.transform.localRotation = Quaternion.RotateTowards(handSlot.transform.localRotation, restPosition, swingSpeed * Time.deltaTime);
             yield return null;
         }
 
-        handSlot.transform.localRotation = Quaternion.identity;
+        handSlot.transform.localRotation = restPosition;
         rotateCoroutine = null;
     }
 }
