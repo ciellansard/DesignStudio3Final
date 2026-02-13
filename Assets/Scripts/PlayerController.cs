@@ -2,6 +2,7 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerController : NetworkBehaviour
@@ -27,15 +28,12 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-
         if (!IsOwner)
         {
-            playerCamera.gameObject.SetActive(false);
-        }
-
-        if (!IsOwner)
-        {
-            playerCamera.gameObject.SetActive(false);
+            //turning off all camera components, without turning off the gameobject as things are parented to it
+            playerCamera.gameObject.GetComponent<Camera>().enabled = false;
+            playerCamera.gameObject.GetComponent<AudioListener>().enabled = false;
+            playerCamera.gameObject.GetComponent<UniversalAdditionalCameraData>().enabled = false;
         }
         else
         {
@@ -59,6 +57,8 @@ public class PlayerController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (!IsOwner)
         {
             return;
