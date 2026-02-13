@@ -1080,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handSlot: {fileID: 9080219621008181507}
-  targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  targetRotation: {x: -0.1759569, y: -0.03131908, z: -0.3932565, w: 0.9018911}
 --- !u!54 &144103683200179215
 Rigidbody:
   m_ObjectHideFlags: 0
