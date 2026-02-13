@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -38,7 +40,16 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private GameObject hand2;
     [SerializeField]
+    private GameObject leg1;
+    [SerializeField]
+    private GameObject leg2;
+    [SerializeField]
+    private GameObject shoulder1;
+    [SerializeField]
+    private GameObject shoulder2;
+    [SerializeField]
     private GameObject weapon;
+    private List<GameObject> bodyParts = new List<GameObject>();
 
     private void Awake()
     {
@@ -47,11 +58,24 @@ public class EnemyAI : MonoBehaviour
         attackScript = GetComponent<AttackControl>();
         healthScript = GetComponent<CharacterHealth>();
         rb = GetComponent<Rigidbody>();
+
+        // Add all existing body parts to a list
+        if (head != null)       bodyParts.Add(head);
+        if (body != null)       bodyParts.Add(body);
+        if (hand1 != null)      bodyParts.Add(hand1);
+        if (hand2 != null)      bodyParts.Add(hand2);
+        if (leg1 != null)       bodyParts.Add(leg1);
+        if (leg2 != null)       bodyParts.Add(leg2);
+        if (shoulder1 != null)  bodyParts.Add(shoulder1);
+        if (shoulder2 != null)  bodyParts.Add(shoulder2);
+
+        // Could we just have a public List<GameObject> bodyParts? hmm
     }
 
     private void Update()
     {
         if (isDead) return;
+
         if (healthScript.currentHealth <= 0)
         {
             isDead = true;
@@ -71,6 +95,9 @@ public class EnemyAI : MonoBehaviour
             if (playerInAttackRange && playerInSightRange) AttackPlayer(closestPlayer.transform);
         }
         else Patrol();
+
+        // Only let the enemy spin around the vertical axis
+        transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, 0);
     }
 
     private GameObject GetNearestPlayer()
@@ -143,6 +170,16 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
+    private void tumbleBodyPart(GameObject part)
+    {
+        part.transform.SetParent(null, true);
+        Rigidbody partRb = part.GetComponent<Rigidbody>();
+        partRb.isKinematic = false;
+        partRb.useGravity = true;
+        part.GetComponent<Collider>().enabled = true;
+        Debug.Log(part.name);
+    }
+
     private void Die()
     {
         //isDead = true;
@@ -153,39 +190,11 @@ public class EnemyAI : MonoBehaviour
         rb.isKinematic = false;
 
         agent.enabled = false;
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
 
-        body.transform.SetParent(null, true);
-        Rigidbody bodyRb = body.GetComponent<Rigidbody>();
-        bodyRb.isKinematic = false;
-        bodyRb.useGravity = true;
-        body.GetComponent<CapsuleCollider>().enabled = true;
+        for (int i = 0; i < bodyParts.Count; i++) tumbleBodyPart(bodyParts[i]);
 
-        head.transform.SetParent(null, true);
-        Rigidbody headRb = head.GetComponent<Rigidbody>();
-        headRb.isKinematic = false;
-        headRb.useGravity = true;
-        head.GetComponent<SphereCollider>().enabled = true;
-
-        hand1.transform.SetParent(null, true);
-        Rigidbody hand1Rb = hand1.GetComponent<Rigidbody>();
-        hand1Rb.isKinematic = false;
-        hand1Rb.useGravity = true;
-        hand1.GetComponent<SphereCollider>().enabled = true;
-
-        hand2.transform.SetParent(null, true);
-        Rigidbody hand2Rb = hand2.GetComponent<Rigidbody>();
-        hand2Rb.isKinematic = false;
-        hand2Rb.useGravity = true;
-        hand2.GetComponent<SphereCollider>().enabled = true;
-
-        weapon.transform.SetParent(null, true);
-        Rigidbody weaponRb = weapon.GetComponent<Rigidbody>();
-        weaponRb.isKinematic = false;
-        weaponRb.useGravity = true;
-        weapon.GetComponent<BoxCollider>().enabled = true;
-
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
+        gameObject.GetComponent<Collider>().enabled = false;
 
         rb.AddForce(Vector3.back * 1.5f);
         StartCoroutine(DeathDelay());
@@ -196,12 +205,7 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("waiting to destroy objects");
         yield return new WaitForSeconds(deathDelay);
         Destroy(gameObject);
-        Destroy(body);
-        Destroy(head);
-        Destroy(hand1);
-        Destroy(hand2);
-        Destroy(weapon);
-
+        for (int i = 0; i < bodyParts.Count; i++) Destroy(bodyParts[i]);
     }
 
     public void UpdatePlayerList()

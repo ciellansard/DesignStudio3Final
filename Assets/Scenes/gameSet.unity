@@ -204,6 +204,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Condiment Bottle
       objectReference: {fileID: 0}
+    - target: {fileID: 6085183112084715835, guid: 63ec837a1bd0d9142bf638a2293c2622, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6861578592421389185, guid: 63ec837a1bd0d9142bf638a2293c2622, type: 3}
       propertyPath: m_LocalScale.x
       value: 80
@@ -338,6 +342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fresh Milk
       objectReference: {fileID: 0}
+    - target: {fileID: 6484381268966731629, guid: 27e8c6ce66b73e244a1eb20c497bd219, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -420,6 +428,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: -6048416115290699677, guid: fa6c315a71f7bc447b0dd94815be3d11, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -3000186531101970457, guid: fa6c315a71f7bc447b0dd94815be3d11, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -435,6 +447,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fa6c315a71f7bc447b0dd94815be3d11, type: 3}
       propertyPath: m_TagString
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa6c315a71f7bc447b0dd94815be3d11, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -484,6 +500,71 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 650f06b47f70be44091329803438afd8, type: 2}
   m_BuildHeightMesh: 0
+--- !u!1001 &720716455
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1245196653202772142, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1505846348
+      objectReference: {fileID: 0}
+    - target: {fileID: 1245196653202772142, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3282765965
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4858768200124523964, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8507361655390544598, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
+      propertyPath: m_Name
+      value: Devilled Egg
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 942de81dc9e941542bf16fde661554e1, type: 3}
 --- !u!1001 &817334222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,6 +576,10 @@ PrefabInstance:
     - target: {fileID: 3767638274943662887, guid: 8628b115716730a4b964421f4ed96b7f, type: 3}
       propertyPath: m_Name
       value: Milk Pot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3767638274943662887, guid: 8628b115716730a4b964421f4ed96b7f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4540340495718474141, guid: 8628b115716730a4b964421f4ed96b7f, type: 3}
       propertyPath: m_LocalScale.x
@@ -855,6 +940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spatula 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4571854112530930700, guid: 48e112647ab143c409510b7915f9f2fa, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -873,9 +962,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1613938406}
     m_Modifications:
+    - target: {fileID: 1339349552557369568, guid: 73686474ee0e98a4ebfe11cdc4aa307e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5823033699471800832, guid: 73686474ee0e98a4ebfe11cdc4aa307e, type: 3}
       propertyPath: m_Name
       value: Stock Pot 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823033699471800832, guid: 73686474ee0e98a4ebfe11cdc4aa307e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 6594469287951687866, guid: 73686474ee0e98a4ebfe11cdc4aa307e, type: 3}
       propertyPath: m_LocalScale.x
@@ -973,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3639458862358163085, guid: 63cc096e69b3cba47be3ca4648b77a73, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.04
+      value: 1.38
       objectReference: {fileID: 0}
     - target: {fileID: 3639458862358163085, guid: 63cc096e69b3cba47be3ca4648b77a73, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1092,6 +1189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pepper Shaker
       objectReference: {fileID: 0}
+    - target: {fileID: 7652054318292335642, guid: 3e09c02a768b5ba4dafd507be5473869, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 8156426483294887375, guid: 3e09c02a768b5ba4dafd507be5473869, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1201,6 +1302,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tea Tin
       objectReference: {fileID: 0}
+    - target: {fileID: 994298411231264066, guid: cae48e5c57ba2bd479d0627886dbf466, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1279,6 +1384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bread Container
       objectReference: {fileID: 0}
+    - target: {fileID: 4362249781242477096, guid: 12ae1db2be5d57245a89c8370258b7d2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1304,6 +1413,10 @@ PrefabInstance:
     - target: {fileID: 1407731799553396164, guid: 582a70d03540d6140985653f5c5b3c67, type: 3}
       propertyPath: m_Name
       value: Seasoning Bottle 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407731799553396164, guid: 582a70d03540d6140985653f5c5b3c67, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1784151337912932222, guid: 582a70d03540d6140985653f5c5b3c67, type: 3}
       propertyPath: m_LocalScale.x
@@ -1389,7 +1502,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1613938406
 Transform:
@@ -1486,6 +1599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottle 11
       objectReference: {fileID: 0}
+    - target: {fileID: 2270553558375698843, guid: a6a8ed1ad6b21d7468842663ab2584ba, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1563,6 +1680,10 @@ PrefabInstance:
     - target: {fileID: 7652054318292335642, guid: 3e09c02a768b5ba4dafd507be5473869, type: 3}
       propertyPath: m_Name
       value: Salt Shaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652054318292335642, guid: 3e09c02a768b5ba4dafd507be5473869, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1719,6 +1840,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hexagonal Can
       objectReference: {fileID: 0}
+    - target: {fileID: 5434594685490798831, guid: 3825496aaf1d38d4aab8f7c4cb8fd52f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1740,3 +1865,4 @@ SceneRoots:
   - {fileID: 1094594908}
   - {fileID: 1870166106}
   - {fileID: 2370345}
+  - {fileID: 720716455}

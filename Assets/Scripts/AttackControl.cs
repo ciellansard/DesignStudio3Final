@@ -9,8 +9,14 @@ public class AttackControl : MonoBehaviour
     [SerializeField]
     private GameObject handSlot;
     public Quaternion targetRotation = Quaternion.Euler(90,0,0);
+    private Quaternion restPosition;
     public Coroutine rotateCoroutine;
     bool swingingDown = true;
+
+    public void Awake()
+    {
+        restPosition =  handSlot.transform.rotation;
+    }
 
     public void Attack()
     {
@@ -34,14 +40,14 @@ public class AttackControl : MonoBehaviour
             yield return null;
         }
         //rotate back up to rest
-        while (Quaternion.Angle(handSlot.transform.localRotation, quaternion.identity) > 0.1f)
+        while (Quaternion.Angle(handSlot.transform.localRotation, restPosition) > 0.1f)
         {
             //Debug.Log("swinging up");
-            handSlot.transform.localRotation = Quaternion.RotateTowards(handSlot.transform.localRotation, Quaternion.identity, swingSpeed * Time.deltaTime);
+            handSlot.transform.localRotation = Quaternion.RotateTowards(handSlot.transform.localRotation, restPosition, swingSpeed * Time.deltaTime);
             yield return null;
         }
 
-        handSlot.transform.localRotation = Quaternion.identity;
+        handSlot.transform.localRotation = restPosition;
         rotateCoroutine = null;
     }
 }
