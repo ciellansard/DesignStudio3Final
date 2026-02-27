@@ -101,11 +101,11 @@ public class PlayerController : NetworkBehaviour
 
         //jumping
         // referenced https://docs.unity3d.com/ScriptReference/CharacterController.Move.html 
-        if (Keyboard.current.spaceKey.isPressed && groundedPlayer)
+        /*if (Keyboard.current.spaceKey.isPressed && groundedPlayer)
         {
             //Debug.Log("jumping");
             playerGravity.y = Mathf.Sqrt(jumpForce * -2f * gravity);         
-        }
+        }*/
 
         if (Keyboard.current.eKey.isPressed) attackControl.Attack();
     }
