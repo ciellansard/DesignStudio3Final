@@ -3,7 +3,9 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UIElements;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using static UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticsUtility;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -28,6 +30,12 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        //changes spawnpoint from 0,0,0 to counter
+        controller.enabled = false;
+        controller.transform.position = new Vector3(-200, 50, 10);
+        controller.transform.rotation = Quaternion.Euler(0, 160, 0);
+        controller.enabled = true;
+
         if (!IsOwner)
         {
             //turning off all camera components, without turning off the gameobject as things are parented to it
@@ -42,8 +50,8 @@ public class PlayerController : NetworkBehaviour
 
         }
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
+        UnityEngine.Cursor.visible = false;
 
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
