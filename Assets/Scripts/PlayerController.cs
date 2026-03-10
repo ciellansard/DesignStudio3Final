@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class PlayerController : NetworkBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     public float mouseSensitivity = 2f;
@@ -26,21 +26,10 @@ public class PlayerController : NetworkBehaviour
     private bool groundedPlayer = true;
     private GameObject[] enemies;
 
-    public override void OnNetworkSpawn()
+    private void Awake()
     {
-        if (!IsOwner)
-        {
-            //turning off all camera components, without turning off the gameobject as things are parented to it
-            playerCamera.gameObject.GetComponent<Camera>().enabled = false;
-            playerCamera.gameObject.GetComponent<AudioListener>().enabled = false;
-            playerCamera.gameObject.GetComponent<UniversalAdditionalCameraData>().enabled = false;
-        }
-        else
-        {
-            attackControl = GetComponent<AttackControl>();
-            rb = GetComponent<Rigidbody>();
-
-        }
+        attackControl = GetComponent<AttackControl>();
+        rb = GetComponent<Rigidbody>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -51,6 +40,7 @@ public class PlayerController : NetworkBehaviour
             enemy.GetComponent<EnemyAI>().UpdatePlayerList();
         }
     }
+   
 
   
 
@@ -58,8 +48,8 @@ public class PlayerController : NetworkBehaviour
     void Update()
     {
         
-
-        if (!IsOwner)
+        
+        if (playerCamera == null)
         {
             return;
         }
