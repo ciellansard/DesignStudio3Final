@@ -5,6 +5,7 @@ using System.Collections;
 using Unity.VisualScripting;
 
 
+//for hardboiled egg and basic enemies
 public class AttackControl : MonoBehaviour
 {
     [SerializeField]
