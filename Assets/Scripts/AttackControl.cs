@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 
 
+//for hardboiled egg and basic enemies
 public class AttackControl : MonoBehaviour
 {
     [SerializeField]
