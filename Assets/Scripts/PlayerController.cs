@@ -22,9 +22,12 @@ public class PlayerController : NetworkBehaviour
     float xRotation = 0f;
 
     private AttackControl attackControl;
+    //public SunnyAttack sunnyPrimary;
+    //public SunnyAttack sunnySecondary;
+
     private Rigidbody rb;
     private Vector3 playerGravity;
-    
+   
     private bool groundedPlayer = true;
     private GameObject[] enemies;
 
@@ -58,15 +61,11 @@ public class PlayerController : NetworkBehaviour
         {
             enemy.GetComponent<EnemyAI>().UpdatePlayerList();
         }
-    }
-
-  
+    } 
 
     // Update is called once per frame
     void Update()
     {
-        
-
         if (!IsOwner)
         {
             return;
@@ -115,7 +114,15 @@ public class PlayerController : NetworkBehaviour
             playerGravity.y = Mathf.Sqrt(jumpForce * -2f * gravity);         
         }*/
 
+        //depending on class comment stuff out
+
+        //hardboiled
         if (Keyboard.current.eKey.isPressed) attackControl.Attack();
+
+        //sunnyside up
+        //if (Keyboard.current.eKey.isPressed) sunnyPrimary.Attack();
+        //if (Keyboard.current.qKey.isPressed) sunnySecondary.Attack();
+
     }
 
 }
