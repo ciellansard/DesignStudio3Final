@@ -5,11 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
+using Unity.Netcode;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyAI : NetworkBehaviour
 {
     public NavMeshAgent agent;
-    public GameObject[] players;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
@@ -51,13 +51,16 @@ public class EnemyAI : MonoBehaviour
     private GameObject weapon;
     private List<GameObject> bodyParts = new List<GameObject>();
 
+    
+
+
     private void Awake()
     {
-        UpdatePlayerList();
         agent = GetComponent<NavMeshAgent>();
         attackScript = GetComponent<AttackControl>();
         healthScript = GetComponent<CharacterHealth>();
         rb = GetComponent<Rigidbody>();
+        
 
         // Add all existing body parts to a list
         if (head != null)       bodyParts.Add(head);
@@ -74,6 +77,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (!IsServer) return;
         if (isDead) return;
 
         if (healthScript.currentHealth <= 0)
@@ -83,7 +87,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         WalkPointUpdateY();
-        if (players.Length > 0) {
+        if (PlayerList.Players.Count > 0) {
             closestPlayer = GetNearestPlayer();
 
             //just checks if a player is in range
@@ -104,7 +108,7 @@ public class EnemyAI : MonoBehaviour
     {
         GameObject closest = null;
         float smallestDistance = 999999999;
-        foreach (var player in players)
+        foreach (var player in PlayerList.Players)
         {
             float distance = (transform.position - player.transform.position).magnitude;
             if (distance < smallestDistance)
@@ -206,10 +210,5 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(deathDelay);
         Destroy(gameObject);
         for (int i = 0; i < bodyParts.Count; i++) Destroy(bodyParts[i]);
-    }
-
-    public void UpdatePlayerList()
-    {
-        players = GameObject.FindGameObjectsWithTag("Player");
     }
 }

@@ -1,21 +1,22 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using Unity.Netcode;
+using UnityEngine;
 
 public class Spawn : NetworkBehaviour
 {
+    public GameObject desktopPrefab;
+    public GameObject vrPrefab;
 
-    public override void OnNetworkSpawn()
+    public void CallSpawnDesktop()
     {
-        if (!IsOwner)
-        {
-            Camera[] playerCameras = gameObject.GetComponentsInChildren<Camera>(true);
-            foreach (Camera cam in playerCameras)
-            {
-                Destroy(cam);
-            }
-        }
+        SpawnDesktopServerRpc();
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    void SpawnDesktopServerRpc(ServerRpcParams rpcParams = default)
+    {
+        ulong clientId = rpcParams.Receive.SenderClientId;
 
+        GameObject player = Instantiate(desktopPrefab);
+        player.GetComponent<NetworkObject>().SpawnAsPlayerObject(clientId);
+    }
 }

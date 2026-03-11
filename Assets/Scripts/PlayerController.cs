@@ -1,11 +1,8 @@
-using System.Linq;
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering.Universal;
-using static UnityEditor.Experimental.GraphView.GraphView;
+using Unity.Netcode;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public float speed = 5f;
     public float mouseSensitivity = 2f;
@@ -24,32 +21,45 @@ public class PlayerController : MonoBehaviour
     private Vector3 playerGravity;
     
     private bool groundedPlayer = true;
-    private GameObject[] enemies;
 
-    private void Awake()
+    public override void OnNetworkSpawn()
     {
-        attackControl = GetComponent<AttackControl>();
-        rb = GetComponent<Rigidbody>();
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
+        Debug.Log($"Owner: {OwnerClientId} | Local: {NetworkManager.Singleton.LocalClientId} | IsOwner: {IsOwner}");
+        if (!IsOwner)
         {
-            enemy.GetComponent<EnemyAI>().UpdatePlayerList();
-        }
-    }
-   
+            Camera[] playerCameras = GetComponentsInChildren<Camera>(true);
+            foreach (Camera cam in playerCameras)
+            {
+                Destroy(cam.gameObject);
+            }
 
-  
+            Canvas[] canvases = GetComponentsInChildren<Canvas>(true);
+            foreach (Canvas canvas in canvases)
+            {
+                Destroy(canvas.gameObject);
+            }
+        }
+
+        if (IsOwner)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        PlayerList.Register(gameObject);
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        PlayerList.Unregister(gameObject);
+    }
 
     // Update is called once per frame
     void Update()
     {
+
         
-        
-        if (playerCamera == null)
+        if (!IsOwner)
         {
             return;
         }
