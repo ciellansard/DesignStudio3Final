@@ -101,7 +101,7 @@ public class PlayerController : NetworkBehaviour
         float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
