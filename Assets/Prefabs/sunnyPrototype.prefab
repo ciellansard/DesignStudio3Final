@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3692736408575901877}
   - component: {fileID: 662908563326294550}
+  - component: {fileID: 3858776280081938885}
   m_Layer: 6
   m_Name: Handslot L
   m_TagString: Untagged
@@ -166,6 +167,20 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &3858776280081938885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042942189978195398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94eb16065c460844097a8a4ac767f952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 8085728513813116258}
+  projectile: {fileID: 7798402985502475344}
 --- !u!1 &2700598883846432805
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +201,7 @@ GameObject:
   - component: {fileID: 7723750156146425422}
   - component: {fileID: 7980120259657344269}
   - component: {fileID: 6834157384020410765}
+  - component: {fileID: -8882220128899356454}
   m_Layer: 6
   m_Name: sunnyPrototype
   m_TagString: Player
@@ -279,8 +295,6 @@ MonoBehaviour:
   controller: {fileID: 8031476411257728629}
   cameraTransform: {fileID: 4757565953987265212}
   playerCamera: {fileID: 8085728513813116258}
-  scramblePrimary: {fileID: 7980120259657344269}
-  scrambleSecondary: {fileID: 6834157384020410765}
 --- !u!114 &267024553890721519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,12 +444,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2700598883846432805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94eb16065c460844097a8a4ac767f952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSlot: {fileID: 7503636802253059520}
   playerCam: {fileID: 8085728513813116258}
   projectile: {fileID: 6461500949053889254}
 --- !u!114 &6834157384020410765
@@ -445,14 +458,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2700598883846432805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94eb16065c460844097a8a4ac767f952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSlot: {fileID: 2042942189978195398}
   playerCam: {fileID: 8085728513813116258}
   projectile: {fileID: 7798402985502475344}
+--- !u!114 &-8882220128899356454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700598883846432805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handSlotL: {fileID: 2042942189978195398}
+  handSlotR: {fileID: 7503636802253059520}
+  targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  entityType: 1
 --- !u!1 &3139623814972996091
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2688230002034672376}
   - component: {fileID: 6069544933064579401}
+  - component: {fileID: 1931757893994009533}
   m_Layer: 6
   m_Name: Handslot R
   m_TagString: Untagged
@@ -892,6 +921,20 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &1931757893994009533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7503636802253059520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94eb16065c460844097a8a4ac767f952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCam: {fileID: 8085728513813116258}
+  projectile: {fileID: 6461500949053889254}
 --- !u!1 &7545276784637981414
 GameObject:
   m_ObjectHideFlags: 0

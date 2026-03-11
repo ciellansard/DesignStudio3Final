@@ -114,15 +114,9 @@ public class PlayerController : NetworkBehaviour
             playerGravity.y = Mathf.Sqrt(jumpForce * -2f * gravity);         
         }*/
 
-<<<<<<< Updated upstream
-        if (Keyboard.current.eKey.isPressed) attackControl.Attack();
-=======
-        //depending on class comment stuff out
-
         // Execute main or secondary attack when e or q is pressed.
         if (Keyboard.current.eKey.isPressed) attackControl.Attack(true, attackControl.entityType);
         else if (Keyboard.current.qKey.isPressed) attackControl.Attack(false, attackControl.entityType);
->>>>>>> Stashed changes
     }
 
 }

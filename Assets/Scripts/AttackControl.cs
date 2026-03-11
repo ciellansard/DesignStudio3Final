@@ -40,7 +40,7 @@ public class AttackControl : MonoBehaviour
 
                     //this is a disgusting call, but i don't have a better solution at the moment
                     rotateCoroutine = StartCoroutine(RotateToAngle(handSlotR.transform.GetComponentInChildren<WeaponData>().swingSpeed));
-                    Debug.Log("attack!");
+                    Debug.Log("attack hard!");
 
                     break;
 
@@ -65,7 +65,7 @@ public class AttackControl : MonoBehaviour
 
                     //this is a disgusting call, but i don't have a better solution at the moment
                     rotateCoroutine = StartCoroutine(RotateToAngle(handSlotR.transform.GetComponentInChildren<WeaponData>().swingSpeed));
-                    Debug.Log("attack!");
+                    Debug.Log("attack goon!");
 
                     break;
 
@@ -77,7 +77,7 @@ public class AttackControl : MonoBehaviour
 
                     //this is a disgusting call, but i don't have a better solution at the moment
                     rotateCoroutine = StartCoroutine(RotateToAngle(handSlotR.transform.GetComponentInChildren<WeaponData>().swingSpeed));
-                    Debug.Log("attack!");
+                    Debug.Log("attack devil!");
 
                     break;
 
