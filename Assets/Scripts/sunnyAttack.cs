@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class SunnyAttack : MonoBehaviour
 {
     [SerializeField]
-    private GameObject handSlot;
+    //private GameObject handSlot;
     public Camera playerCam;
     bool reloadProjectile = false;
 
@@ -28,7 +28,8 @@ public class SunnyAttack : MonoBehaviour
             reloadProjectile = true;
            
             pCopy = Instantiate(projectile);
-            pCopy.transform.position = projectile.transform.position;//make sure its at player's hand
+
+            pCopy.transform.position = this.transform.position;
           
             pCopy.GetComponent<Rigidbody>().isKinematic = false;
             pCopy.SetActive(true); //set visible
@@ -37,12 +38,12 @@ public class SunnyAttack : MonoBehaviour
             rechargeProjectile = StartCoroutine(RechargeWait(projectile.GetComponent<WeaponData>().swingSpeed)); //wait until ability reloads, value is swinging speed on weapon's prefab
         }
             
-        Debug.Log("attack!");
+        Debug.Log("Sunny side up egg attacks with " + projectile.name + "!");
     }
 
     private void Update()
     {
-        pHeight = pCopy.transform.position.y;
+        if (pCopy) pHeight = pCopy.transform.position.y;
         if (pHeight < -2) { Destroy(pCopy); }
     }
 

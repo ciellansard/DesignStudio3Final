@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8507361655390544598}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
@@ -1079,8 +1079,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSlot: {fileID: 9080219621008181507}
+  handSlotL: {fileID: 0}
+  handSlotR: {fileID: 9080219621008181507}
   targetRotation: {x: -0.1759569, y: -0.03131908, z: -0.3932565, w: 0.9018911}
+  entityType: 5
 --- !u!54 &144103683200179215
 Rigidbody:
   m_ObjectHideFlags: 0

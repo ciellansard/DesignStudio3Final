@@ -16,14 +16,11 @@ public class PlayerController : MonoBehaviour
     public Camera playerCamera;
 
     float xRotation = 0f;
-
     private AttackControl attackControl;
-    public SunnyAttack sunnyPrimary;
-    public SunnyAttack sunnySecondary;
 
     private Rigidbody rb;
     private Vector3 playerGravity;
-   
+    
     private bool groundedPlayer = true;
     private GameObject[] enemies;
 
@@ -40,47 +37,23 @@ public class PlayerController : MonoBehaviour
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
-    }
 
-    //public override void OnNetworkSpawn()
-    //{
-    //    //changes spawnpoint from 0,0,0 to counter
-    //    controller.enabled = false;
-    //    controller.transform.position = new Vector3(-200, 50, 10);
-    //    controller.transform.rotation = Quaternion.Euler(0, 160, 0);
-    //    controller.enabled = true;
-    //
-    //    if (!IsOwner)
-    //    {
-    //        //turning off all camera components, without turning off the gameobject as things are parented to it
-    //        playerCamera.gameObject.GetComponent<Camera>().enabled = false;
-    //        playerCamera.gameObject.GetComponent<AudioListener>().enabled = false;
-    //        playerCamera.gameObject.GetComponent<UniversalAdditionalCameraData>().enabled = false;
-    //    }
-    //    else
-    //    {
-    //        attackControl = GetComponent<AttackControl>();
-    //        rb = GetComponent<Rigidbody>();
-    //
-    //    }
-    //
-    //    UnityEngine.Cursor.lockState = CursorLockMode.Locked;
-    //    UnityEngine.Cursor.visible = false;
-    //
-    //    enemies = GameObject.FindGameObjectsWithTag("Enemy");
-    //    foreach (GameObject enemy in enemies)
-    //    {
-    //        enemy.GetComponent<EnemyAI>().UpdatePlayerList();
-    //    }
-    //} 
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            enemy.GetComponent<EnemyAI>().UpdatePlayerList();
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
-       //if (!IsOwner)
-       //{
-       //    return;
-       //}
+       /*
+       if (!IsOwner)
+       {
+           return;
+       }
+       */
 
         groundedPlayer = controller.isGrounded;
 
@@ -112,7 +85,7 @@ public class PlayerController : MonoBehaviour
         float mouseY = mouseDelta.y * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
@@ -125,15 +98,9 @@ public class PlayerController : MonoBehaviour
             playerGravity.y = Mathf.Sqrt(jumpForce * -2f * gravity);         
         }*/
 
-
-        //depending on class comment stuff out
-        //hardboiled
-        //if (Keyboard.current.eKey.isPressed) attackControl.Attack();
-
-        //sunnyside up
-        if (Keyboard.current.eKey.isPressed) sunnyPrimary.Attack();
-        if (Keyboard.current.qKey.isPressed) sunnySecondary.Attack();
+        // Execute main or secondary attack when e or q is pressed.
+        if (Keyboard.current.eKey.isPressed) attackControl.Attack(true, attackControl.entityType);
+        else if (Keyboard.current.qKey.isPressed) attackControl.Attack(false, attackControl.entityType);
 
     }
-
 }

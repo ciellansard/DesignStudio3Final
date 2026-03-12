@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 1486794251136442409}
   - component: {fileID: 5405721732529395124}
   m_Layer: 0
-  m_Name: PepperCorn
+  m_Name: Salt
   m_TagString: Harmful
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7282761394031701892
 Transform:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 70dd28abce3ee504f95dfce770eff9ff, type: 2}
+  - {fileID: 2100000, guid: c05115278d6690e41a383d2d75576411, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb71a15c9e2c2e448fd4cf14e3d92c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swingSpeed: 1
-  damage: 3
+  swingSpeed: 5
+  damage: 5
 --- !u!54 &5405721732529395124
 Rigidbody:
   m_ObjectHideFlags: 0
