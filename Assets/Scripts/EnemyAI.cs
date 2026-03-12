@@ -51,6 +51,9 @@ public class EnemyAI : MonoBehaviour
     private GameObject weapon;
     private List<GameObject> bodyParts = new List<GameObject>();
 
+    private bool canCastPaprikaStorm = false;
+    private bool paprikaStormTriggered = false;
+
     private void Awake()
     {
         UpdatePlayerList();
@@ -58,6 +61,7 @@ public class EnemyAI : MonoBehaviour
         attackScript = GetComponent<AttackControl>();
         healthScript = GetComponent<CharacterHealth>();
         rb = GetComponent<Rigidbody>();
+        if (GetComponent<PaprikaStorm>()) canCastPaprikaStorm = true;
 
         // Add all existing body parts to a list
         if (head != null)       bodyParts.Add(head);
@@ -98,6 +102,14 @@ public class EnemyAI : MonoBehaviour
 
         // Only let the enemy spin around the vertical axis
         transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, 0);
+
+        // Once an enemy with the ability to conjure paprika storm sees a player, they become able to conjure paprika storm.
+        // This will stay active forever! Until this enemy dies.
+        if (playerInSightRange && canCastPaprikaStorm && !paprikaStormTriggered)
+        {
+            GetComponent<PaprikaStorm>().playerSpotted = true;
+            paprikaStormTriggered = true;
+        }
     }
 
     private GameObject GetNearestPlayer()
