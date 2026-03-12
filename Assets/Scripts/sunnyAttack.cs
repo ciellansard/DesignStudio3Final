@@ -19,23 +19,22 @@ public class SunnyAttack : MonoBehaviour
 
     public void Awake()
     {
-        //restPosition = handSlot.transform.rotation;
         projectile.SetActive(false);
     }
      public void Attack()
     {
-        if (reloadProjectile == false)
+        if (reloadProjectile == false)//makes it so only one projectile is shot at once
         {
             reloadProjectile = true;
            
             pCopy = Instantiate(projectile);
-            pCopy.transform.position = projectile.transform.position;
+            pCopy.transform.position = projectile.transform.position;//make sure its at player's hand
           
             pCopy.GetComponent<Rigidbody>().isKinematic = false;
-            pCopy.SetActive(true);
-            pCopy.GetComponent<Rigidbody>().linearVelocity = playerCam.transform.forward * 20;
+            pCopy.SetActive(true); //set visible
+            pCopy.GetComponent<Rigidbody>().linearVelocity = playerCam.transform.forward * 20; //launch direction and speed/power
 
-            rechargeProjectile = StartCoroutine(RechargeWait(projectile.GetComponent<WeaponData>().swingSpeed));
+            rechargeProjectile = StartCoroutine(RechargeWait(projectile.GetComponent<WeaponData>().swingSpeed)); //wait until ability reloads, value is swinging speed on weapon's prefab
         }
             
         Debug.Log("attack!");

@@ -22,8 +22,8 @@ public class PlayerController : NetworkBehaviour
     float xRotation = 0f;
 
     private AttackControl attackControl;
-    //public SunnyAttack sunnyPrimary;
-    //public SunnyAttack sunnySecondary;
+    public SunnyAttack sunnyPrimary;
+    public SunnyAttack sunnySecondary;
 
     private Rigidbody rb;
     private Vector3 playerGravity;
@@ -114,14 +114,14 @@ public class PlayerController : NetworkBehaviour
             playerGravity.y = Mathf.Sqrt(jumpForce * -2f * gravity);         
         }*/
 
-        //depending on class comment stuff out
 
+        //depending on class comment stuff out
         //hardboiled
-        if (Keyboard.current.eKey.isPressed) attackControl.Attack();
+        //if (Keyboard.current.eKey.isPressed) attackControl.Attack();
 
         //sunnyside up
-        //if (Keyboard.current.eKey.isPressed) sunnyPrimary.Attack();
-        //if (Keyboard.current.qKey.isPressed) sunnySecondary.Attack();
+        if (Keyboard.current.eKey.isPressed) sunnyPrimary.Attack();
+        if (Keyboard.current.qKey.isPressed) sunnySecondary.Attack();
 
     }
 

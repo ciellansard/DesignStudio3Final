@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  speed: 10
+  speed: 7
   mouseSensitivity: 50
   jumpForce: 1.5
   controller: {fileID: 8031476411257728629}
