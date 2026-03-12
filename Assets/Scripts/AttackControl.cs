@@ -20,7 +20,6 @@ public class AttackControl : MonoBehaviour
 
     public int entityType; // 0 = hard, 1 = sunny, 2 = scrambled, 3 = poached, 4 = goons, 5 = devilled egg
 
-
     public void Awake()
     {
         restPosition = handSlotR.transform.rotation;

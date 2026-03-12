@@ -616,8 +616,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSlot: {fileID: 7503636802253059520}
+  handSlotL: {fileID: 0}
+  handSlotR: {fileID: 7503636802253059520}
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  entityType: 2
 --- !u!54 &-2638352925261552889
 Rigidbody:
   m_ObjectHideFlags: 0

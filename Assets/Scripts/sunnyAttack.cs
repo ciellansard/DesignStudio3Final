@@ -29,7 +29,7 @@ public class SunnyAttack : MonoBehaviour
             reloadProjectile = true;
            
             pCopy = Instantiate(projectile);
-            pCopy.transform.position = projectile.transform.position;
+            pCopy.transform.position = this.transform.position;
           
             pCopy.GetComponent<Rigidbody>().isKinematic = false;
             pCopy.SetActive(true);
