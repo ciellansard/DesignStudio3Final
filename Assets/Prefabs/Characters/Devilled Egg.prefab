@@ -1065,9 +1065,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.41
-  m_Height: 6.15
+  m_Height: 4.6876025
   m_Direction: 1
-  m_Center: {x: -9.313226e-10, y: 3, z: 0.15}
+  m_Center: {x: 0, y: 3.7311985, z: 0.14999998}
 --- !u!114 &2208876330101495383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1091,7 +1091,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8507361655390544598}
   serializedVersion: 5
-  m_Mass: 100
+  m_Mass: 10
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1155,7 +1155,7 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 15
   timeBetweenAttacks: 5
-  sightRange: 10
+  sightRange: 25
   attackRange: 2.5
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   leg2: {fileID: 5526026643412050745}
   shoulder1: {fileID: 1308714668975219277}
   shoulder2: {fileID: 3006116829057481118}
-  weapon: {fileID: 0}
+  weapon: {fileID: 6846423589267027337}
 --- !u!114 &517344181633832480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,5 +1426,10 @@ PrefabInstance:
 --- !u!4 &6075438779073999287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5589980726892579898, guid: b0237a482071f594ebedbaa758a7daeb, type: 3}
+  m_PrefabInstance: {fileID: 1856559175478345101}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6846423589267027337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5098271869048276996, guid: b0237a482071f594ebedbaa758a7daeb, type: 3}
   m_PrefabInstance: {fileID: 1856559175478345101}
   m_PrefabAsset: {fileID: 0}
