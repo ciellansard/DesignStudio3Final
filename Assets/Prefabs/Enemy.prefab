@@ -492,7 +492,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6315062529595221329}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
@@ -642,6 +642,10 @@ MonoBehaviour:
   body: {fileID: 805824183438398675}
   hand1: {fileID: 7309063712914870638}
   hand2: {fileID: 1745205343502425193}
+  leg1: {fileID: 0}
+  leg2: {fileID: 0}
+  shoulder1: {fileID: 0}
+  shoulder2: {fileID: 0}
   weapon: {fileID: 2313689083579223270}
 --- !u!1 &7309063712914870638
 GameObject:
