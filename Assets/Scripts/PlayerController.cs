@@ -1,13 +1,9 @@
-using System.Linq;
-using Unity.Netcode;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
-using UnityEngine.UIElements;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using static UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics.HapticsUtility;
 
-public class PlayerController : NetworkBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
     public float mouseSensitivity = 2f;
@@ -27,7 +23,7 @@ public class PlayerController : NetworkBehaviour
     private bool groundedPlayer = true;
     private GameObject[] enemies;
 
-    public override void OnNetworkSpawn()
+    private void Awake()
     {
         //changes spawnpoint from 0,0,0 to counter
         controller.enabled = false;
@@ -35,19 +31,8 @@ public class PlayerController : NetworkBehaviour
         controller.transform.rotation = Quaternion.Euler(0, 160, 0);
         controller.enabled = true;
 
-        if (!IsOwner)
-        {
-            //turning off all camera components, without turning off the gameobject as things are parented to it
-            playerCamera.gameObject.GetComponent<Camera>().enabled = false;
-            playerCamera.gameObject.GetComponent<AudioListener>().enabled = false;
-            playerCamera.gameObject.GetComponent<UniversalAdditionalCameraData>().enabled = false;
-        }
-        else
-        {
-            attackControl = GetComponent<AttackControl>();
-            rb = GetComponent<Rigidbody>();
-
-        }
+        attackControl = GetComponent<AttackControl>();
+        rb = GetComponent<Rigidbody>();
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
@@ -59,17 +44,15 @@ public class PlayerController : NetworkBehaviour
         }
     }
 
-  
-
     // Update is called once per frame
     void Update()
     {
-        
-
-        if (!IsOwner)
-        {
-            return;
-        }
+       /*
+       if (!IsOwner)
+       {
+           return;
+       }
+       */
 
         groundedPlayer = controller.isGrounded;
 
@@ -118,5 +101,4 @@ public class PlayerController : NetworkBehaviour
         if (Keyboard.current.eKey.isPressed) attackControl.Attack(true, attackControl.entityType);
         else if (Keyboard.current.qKey.isPressed) attackControl.Attack(false, attackControl.entityType);
     }
-
 }
