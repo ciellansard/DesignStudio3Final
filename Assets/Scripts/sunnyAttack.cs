@@ -38,7 +38,7 @@ public class SunnyAttack : MonoBehaviour
             rechargeProjectile = StartCoroutine(RechargeWait(projectile.GetComponent<WeaponData>().swingSpeed));
         }
             
-        Debug.Log("attack " + projectile.name + "!");
+        Debug.Log("Sunny side up egg attacks with " + projectile.name + "!");
     }
 
     private void Update()
