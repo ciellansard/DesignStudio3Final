@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class SunnyAttack : MonoBehaviour
 {
     [SerializeField]
-    private GameObject handSlot;
+    //private GameObject handSlot;
     public Camera playerCam;
     bool reloadProjectile = false;
 
@@ -19,7 +19,7 @@ public class SunnyAttack : MonoBehaviour
 
     public void Awake()
     {
-        //restPosition = handSlot.transform.rotation;
+        //restPosition = this.transform.rotation;
         projectile.SetActive(false);
     }
      public void Attack()
@@ -29,7 +29,7 @@ public class SunnyAttack : MonoBehaviour
             reloadProjectile = true;
            
             pCopy = Instantiate(projectile);
-            pCopy.transform.position = projectile.transform.position;
+            pCopy.transform.position = this.transform.position;
           
             pCopy.GetComponent<Rigidbody>().isKinematic = false;
             pCopy.SetActive(true);
@@ -38,12 +38,12 @@ public class SunnyAttack : MonoBehaviour
             rechargeProjectile = StartCoroutine(RechargeWait(projectile.GetComponent<WeaponData>().swingSpeed));
         }
             
-        Debug.Log("attack!");
+        Debug.Log("Sunny side up egg attacks with " + projectile.name + "!");
     }
 
     private void Update()
     {
-        pHeight = pCopy.transform.position.y;
+        if (pCopy) pHeight = pCopy.transform.position.y;
         if (pHeight < -2) { Destroy(pCopy); }
     }
 
