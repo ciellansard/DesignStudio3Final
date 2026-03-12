@@ -26,10 +26,12 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         //changes spawnpoint from 0,0,0 to counter
+        /*
         controller.enabled = false;
         controller.transform.position = new Vector3(-200, 50, 10);
         controller.transform.rotation = Quaternion.Euler(0, 160, 0);
         controller.enabled = true;
+        */
 
         attackControl = GetComponent<AttackControl>();
         rb = GetComponent<Rigidbody>();
