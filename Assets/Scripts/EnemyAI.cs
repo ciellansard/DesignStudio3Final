@@ -158,7 +158,7 @@ public class EnemyAI : MonoBehaviour
 
         if (alreadyAttacked == false)
         {
-            attackScript.Attack();
+            attackScript.Attack(true, attackScript.entityType);
             alreadyAttacked = true;
             StartCoroutine(AttackDelay());
         }
