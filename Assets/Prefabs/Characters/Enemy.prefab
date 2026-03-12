@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 8345915675546953748}
   - component: {fileID: 1972042245905236049}
   - component: {fileID: 809022814677546765}
+  - component: {fileID: -2817581328507679079}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -561,7 +562,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSlotL: {fileID: 0}
   handSlotR: {fileID: 1513669068392933011}
-  targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   entityType: 4
 --- !u!54 &8345915675546953748
 Rigidbody:
@@ -649,6 +649,19 @@ MonoBehaviour:
   shoulder1: {fileID: 0}
   shoulder2: {fileID: 0}
   weapon: {fileID: 2313689083579223270}
+--- !u!114 &-2817581328507679079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315062529595221329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e36d34bb9658da4e9cabbb638bb7355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
 --- !u!1 &7309063712914870638
 GameObject:
   m_ObjectHideFlags: 0

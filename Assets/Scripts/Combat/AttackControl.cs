@@ -4,27 +4,20 @@ using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
 
-// TO-DO: maybe create script for every attack type (like how SunnyAttack has its own script)
-
-
 public class AttackControl : MonoBehaviour
 {
     [SerializeField]
     private GameObject handSlotL;
     [SerializeField]
     private GameObject handSlotR;
-    public Quaternion targetRotation = Quaternion.Euler(90,0,0);
-    private Quaternion restPosition;
-    public Coroutine rotateCoroutine;
-    bool swingingDown = true;
 
     public int entityType; // 0 = hard, 1 = sunny, 2 = scrambled, 3 = poached, 4 = goons, 5 = devilled egg
+    private SwordAttack swordAttackScript;
 
-    public void Awake()
+    private void Awake()
     {
-        restPosition = handSlotR.transform.rotation;
+        if (GetComponent<SwordAttack>()) swordAttackScript = GetComponent<SwordAttack>();
     }
-
     public void Attack(bool isMainAttack, int entityType)
     {
         // Right-handed (main) attack
@@ -34,15 +27,7 @@ public class AttackControl : MonoBehaviour
             {
                 // Hard boiled
                 case 0:
-
-                    if (rotateCoroutine != null) return;
-
-                    swingingDown = true;
-
-                    //this is a disgusting call, but i don't have a better solution at the moment
-                    rotateCoroutine = StartCoroutine(RotateToAngle(handSlotR.transform.GetComponentInChildren<WeaponData>().swingSpeed));
-                    Debug.Log("hard boiled egg attacks!");
-
+                    swordAttackScript.attack(handSlotR);
                     break;
 
                 // Sunny side up
@@ -62,26 +47,12 @@ public class AttackControl : MonoBehaviour
 
                 // Goon
                 case 4:
-                    if (rotateCoroutine != null) return;
-
-                    swingingDown = true;
-
-                    //this is a disgusting call, but i don't have a better solution at the moment
-                    rotateCoroutine = StartCoroutine(RotateToAngle(handSlotR.transform.GetComponentInChildren<WeaponData>().swingSpeed));
-                    Debug.Log("goon attacks!");
-
+                    swordAttackScript.attack(handSlotR);
                     break;
 
                 // Devilled egg
                 case 5:
-                    if (rotateCoroutine != null) return;
-
-                    swingingDown = true;
-
-                    //this is a disgusting call, but i don't have a better solution at the moment
-                    rotateCoroutine = StartCoroutine(RotateToAngle(handSlotR.transform.GetComponentInChildren<WeaponData>().swingSpeed));
-                    Debug.Log("devilled egg attacks!");
-
+                    swordAttackScript.attack(handSlotR);
                     break;
 
                 default:
@@ -132,31 +103,5 @@ public class AttackControl : MonoBehaviour
                     break;
             }
         }
-    }
-
-
-
-
-
-    private IEnumerator RotateToAngle(float swingSpeed)
-    {
-        //rotate down
-        while (Quaternion.Angle(handSlotR.transform.localRotation, targetRotation) > 0.1f && swingingDown)
-        {
-            Debug.Log("swinging down");
-            handSlotR.transform.localRotation = Quaternion.RotateTowards(handSlotR.transform.localRotation, targetRotation, swingSpeed * Time.deltaTime);
-            if (Quaternion.Angle(handSlotR.transform.localRotation, targetRotation) < 0.1f) swingingDown = false;
-            yield return null;
-        }
-        //rotate back up to rest
-        while (Quaternion.Angle(handSlotR.transform.localRotation, restPosition) > 0.1f)
-        {
-            Debug.Log("swinging up");
-            handSlotR.transform.localRotation = Quaternion.RotateTowards(handSlotR.transform.localRotation, restPosition, swingSpeed * Time.deltaTime);
-            yield return null;
-        }
-
-        handSlotR.transform.localRotation = restPosition;
-        rotateCoroutine = null;
     }
 }
