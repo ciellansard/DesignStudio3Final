@@ -114,6 +114,8 @@ public class EnemyAI : MonoBehaviour
 
         // Only let the enemy spin around the vertical axis
         transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, 0);
+
+        if (!rb.isKinematic) rb.linearVelocity = Vector3.zero;
     }
 
     private GameObject GetNearestPlayer()
