@@ -1084,6 +1084,7 @@ MonoBehaviour:
   handSlotL: {fileID: 0}
   handSlotR: {fileID: 9080219621008181507}
   entityType: 5
+  isAtacking: 0
 --- !u!54 &144103683200179215
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1092,7 +1093,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8507361655390544598}
   serializedVersion: 5
-  m_Mass: 10
+  m_Mass: 0.1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1155,6 +1156,10 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 15
+  canFly: 1
+  maxFlightHeight: 150
+  maxFlightDuration: 1
+  flightSpeed: 0.01
   timeBetweenAttacks: 3
   sightRange: 20
   attackRange: 2.5
