@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class EnemyAI : MonoBehaviour
 {
+    [Header("NAVIGATION")]
     public NavMeshAgent agent;
     public GameObject[] players;
 
@@ -17,20 +18,30 @@ public class EnemyAI : MonoBehaviour
     bool walkPointSet;
     public float walkPointRange;
 
+    public bool canFly;
+    private bool isFlying = false;
+    public float maxFlightHeight;
+    public float maxFlightDuration;
+    public float flightSpeed;
+
+    [Header("COMBAT")]
     public float timeBetweenAttacks = 1f;
     bool alreadyAttacked;
     AttackControl attackScript;
     CharacterHealth healthScript;
 
+    [Header("SIGHT")]
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
     GameObject closestPlayer;
     Rigidbody rb;
 
+    [Header("DEATH")]
     [SerializeField]
     private float deathDelay = 5f;
     private bool isDead = false;
 
+    [Header("BODY PARTS")]
     [SerializeField]
     private GameObject head;
     [SerializeField]
@@ -51,6 +62,10 @@ public class EnemyAI : MonoBehaviour
     private GameObject weapon;
     private List<GameObject> bodyParts = new List<GameObject>();
 
+    [Header("SPECIAL ABILITIES")]
+    private bool canCastPaprikaStorm = false;
+    private bool paprikaStormTriggered = false;
+
     private void Awake()
     {
         UpdatePlayerList();
@@ -58,6 +73,7 @@ public class EnemyAI : MonoBehaviour
         attackScript = GetComponent<AttackControl>();
         healthScript = GetComponent<CharacterHealth>();
         rb = GetComponent<Rigidbody>();
+        if (GetComponent<PaprikaStorm>()) canCastPaprikaStorm = true;
 
         // Add all existing body parts to a list
         if (head != null)       bodyParts.Add(head);
@@ -98,6 +114,8 @@ public class EnemyAI : MonoBehaviour
 
         // Only let the enemy spin around the vertical axis
         transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, 0);
+
+        if (!rb.isKinematic) rb.linearVelocity = Vector3.zero;
     }
 
     private GameObject GetNearestPlayer()
@@ -126,7 +144,6 @@ public class EnemyAI : MonoBehaviour
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
         if (distanceToWalkPoint.magnitude < 0.25f) walkPointSet = false;
-
     }
     private void SearchWalkPoint()
     {
@@ -144,21 +161,72 @@ public class EnemyAI : MonoBehaviour
     {
         walkPoint.y = transform.position.y;
     }
+
+    /*
+    private IEnumerator flyAway(Transform player)
+    {
+        isFlying = true;
+        float initialHeight = transform.position.y;
+        //rb.useGravity = false;
+        rb.isKinematic = true;
+        int i = 1;
+
+
+        float flightEndTime = Time.time + maxFlightDuration;
+
+        // Levitate for maxFlightDuration Seconds
+        while (Time.time < flightEndTime)
+        {
+            // Fly up and away from player
+            transform.LookAt(player);
+            transform.Rotate(0, 180, 0);
+            transform.Translate(new Vector3(0, transform.position.y + (flightSpeed * (float)i / 10.0f), flightSpeed * (float)i / 100.0f));
+            transform.Rotate(0, -180, 0);
+            rb.linearVelocity = Vector3.zero;
+            i++;
+            yield return null;
+        }
+
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        isFlying = false;
+        
+
+        
+    }
+
+    // Stop flight if enemy hits something.
+    private void OnCollisionEnter()
+    {
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        isFlying = false;
+        rb.linearVelocity = Vector3.zero;
+        StopCoroutine(flyAway(closestPlayer.transform));
+    }
+    */
+
     private void ChasePlayer(Transform player)
     {
        // Debug.Log("Chasing Player");
         agent.SetDestination(player.position);
+        transform.LookAt(player);
+
+        enablePaprikaStorm();
     }
     private void AttackPlayer(Transform player)
     {
         //Debug.Log("Attacking Player");
         //keeps the enemy in place while attacking
-        agent.SetDestination(transform.position);
+        //agent.SetDestination(transform.position);
         transform.LookAt(player);
+
+        enablePaprikaStorm();
 
         if (alreadyAttacked == false)
         {
             attackScript.Attack(true, attackScript.entityType);
+            //if (canFly) StartCoroutine(flyAway(player));
             alreadyAttacked = true;
             StartCoroutine(AttackDelay());
         }
@@ -206,6 +274,17 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(deathDelay);
         Destroy(gameObject);
         for (int i = 0; i < bodyParts.Count; i++) Destroy(bodyParts[i]);
+    }
+
+    private void enablePaprikaStorm()
+    {
+        // Once an enemy with the ability to conjure paprika storm sees a player, they become able to conjure paprika storm.
+        // This will stay active until this enemy dies.
+        if (canCastPaprikaStorm && !paprikaStormTriggered)
+        {
+            GetComponent<PaprikaStorm>().playerSpotted = true;
+            paprikaStormTriggered = true;
+        }
     }
 
     public void UpdatePlayerList()
