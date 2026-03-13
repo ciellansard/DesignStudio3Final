@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6898549466146605823}
+  - component: {fileID: 5951777142572279483}
   m_Layer: 0
   m_Name: Paprika Medium
   m_TagString: Harmful
@@ -32,6 +33,20 @@ Transform:
   - {fileID: 2228739435035477078}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5951777142572279483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5637643745822863297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9032eb2faaf39b45ab302860146457c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 5
+  timeOfCreation: 0
 --- !u!1 &8700529795914633513
 GameObject:
   m_ObjectHideFlags: 0

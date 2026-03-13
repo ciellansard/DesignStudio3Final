@@ -1155,8 +1155,8 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 15
-  timeBetweenAttacks: 5
-  sightRange: 25
+  timeBetweenAttacks: 3
+  sightRange: 20
   attackRange: 2.5
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -1200,10 +1200,10 @@ MonoBehaviour:
   - {fileID: 5637643745822863297, guid: 2ba0daa1dd5cab34ea8c8ff1ed1d5acb, type: 3}
   - {fileID: 5637643745822863297, guid: 8fc94b415edd59a45b187f3bb57afea2, type: 3}
   - {fileID: 5637643745822863297, guid: 80f78d0f636c9d74e8c49c88fddec2a2, type: 3}
-  minTimeBetweenStorms: 2
-  maxTimeBetweenStorms: 4
+  minTimeBetweenStorms: 8
+  maxTimeBetweenStorms: 16
   stormDuration: 1
-  stormCentre: {x: 0, y: 0, z: 0}
+  stormCentre: {x: 0, y: 20, z: 0}
   stormRadius: 32
 --- !u!1 &8586957328463499126
 GameObject:

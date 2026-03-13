@@ -102,14 +102,6 @@ public class EnemyAI : MonoBehaviour
 
         // Only let the enemy spin around the vertical axis
         transform.eulerAngles = new Vector3 (0, transform.eulerAngles.y, 0);
-
-        // Once an enemy with the ability to conjure paprika storm sees a player, they become able to conjure paprika storm.
-        // This will stay active forever! Until this enemy dies.
-        if (playerInSightRange && canCastPaprikaStorm && !paprikaStormTriggered)
-        {
-            GetComponent<PaprikaStorm>().playerSpotted = true;
-            paprikaStormTriggered = true;
-        }
     }
 
     private GameObject GetNearestPlayer()
@@ -160,6 +152,15 @@ public class EnemyAI : MonoBehaviour
     {
        // Debug.Log("Chasing Player");
         agent.SetDestination(player.position);
+        transform.LookAt(player);
+
+        // Once an enemy with the ability to conjure paprika storm sees a player, they become able to conjure paprika storm.
+        // This will stay active until this enemy dies.
+        if (canCastPaprikaStorm && !paprikaStormTriggered)
+        {
+            GetComponent<PaprikaStorm>().playerSpotted = true;
+            paprikaStormTriggered = true;
+        }
     }
     private void AttackPlayer(Transform player)
     {

@@ -14,6 +14,8 @@ public class AttackControl : MonoBehaviour
     public int entityType; // 0 = hard, 1 = sunny, 2 = scrambled, 3 = poached, 4 = goons, 5 = devilled egg
     private SwordAttack swordAttackScript;
 
+    public bool isAtacking;
+
     private void Awake()
     {
         if (GetComponent<SwordAttack>()) swordAttackScript = GetComponent<SwordAttack>();
