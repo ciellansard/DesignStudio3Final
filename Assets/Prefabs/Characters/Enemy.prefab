@@ -439,9 +439,9 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.008395063
+  m_Radius: 0.02
   m_Center: {x: 0, y: 0, z: 0.0359461}
 --- !u!1 &6315062529595221329
 GameObject:
@@ -563,6 +563,7 @@ MonoBehaviour:
   handSlotL: {fileID: 0}
   handSlotR: {fileID: 1513669068392933011}
   entityType: 4
+  isAtacking: 0
 --- !u!54 &8345915675546953748
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -634,6 +635,10 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 15
+  canFly: 0
+  maxFlightHeight: 0
+  maxFlightDuration: 0
+  flightSpeed: 0
   timeBetweenAttacks: 5
   sightRange: 10
   attackRange: 2.5
