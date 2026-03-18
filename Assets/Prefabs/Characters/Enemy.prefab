@@ -525,6 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
+  hudScript: {fileID: 0}
 --- !u!136 &4206738847535229072
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -667,6 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  trail: {fileID: 7262049441961010553}
 --- !u!1 &7309063712914870638
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,6 +865,11 @@ PrefabInstance:
 --- !u!1 &2313689083579223270 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9110291584713980792, guid: 94bde297276cd4445bae45e3aab2ae81, type: 3}
+  m_PrefabInstance: {fileID: 6806520250648704926}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &7262049441961010553 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 4229554492322075367, guid: 94bde297276cd4445bae45e3aab2ae81, type: 3}
   m_PrefabInstance: {fileID: 6806520250648704926}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8987829436665988057 stripped

@@ -14,7 +14,7 @@ public class CharacterHealth : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
-        hudScript.SetMaxHP(maxHealth);
+        if (hudScript  != null ) hudScript.SetMaxHP(maxHealth);
     }
 
     private void OnTriggerEnter(Collider other)

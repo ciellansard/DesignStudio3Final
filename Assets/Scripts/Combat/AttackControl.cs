@@ -10,6 +10,7 @@ public class AttackControl : MonoBehaviour
     private GameObject handSlotL;
     [SerializeField]
     private GameObject handSlotR;
+  
 
     public int entityType; // 0 = hard, 1 = sunny, 2 = scrambled, 3 = poached, 4 = goons, 5 = devilled egg
     private SwordAttack swordAttackScript;
