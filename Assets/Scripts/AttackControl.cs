@@ -52,6 +52,14 @@ public class AttackControl : MonoBehaviour
 
                 // Scrambled
                 case 2:
+
+                    if (rotateCoroutine != null) return;
+
+                    swingingDown = true;
+
+                    //this is a disgusting call, but i don't have a better solution at the moment
+                    rotateCoroutine = StartCoroutine(RotateToAngle(handSlotR.transform.GetComponentInChildren<WeaponData>().swingSpeed));
+
                     Debug.Log("scrambled egg attacks!");
                     break;
 
@@ -108,7 +116,7 @@ public class AttackControl : MonoBehaviour
                 // Scrambled
                 case 2:
                     // Heal
-                    Debug.Log("scrambled egg has no secondary action");
+                    handSlotL.GetComponent<scrambleHeal>().Heal();
                     break;
 
                 // Poached
