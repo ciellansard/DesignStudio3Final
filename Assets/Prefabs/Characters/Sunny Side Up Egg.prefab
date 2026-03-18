@@ -634,6 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
+  hudScript: {fileID: 6216233501106437410}
 --- !u!54 &-2638352925261552889
 Rigidbody:
   m_ObjectHideFlags: 0

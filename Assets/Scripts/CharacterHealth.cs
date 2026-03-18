@@ -7,11 +7,14 @@ public class CharacterHealth : MonoBehaviour
     private int maxHealth;
     [SerializeField]
     public int currentHealth;
+    [SerializeField]
+    private EggBarIcons hudScript;
     private bool isHit;
 
     private void Awake()
     {
         currentHealth = maxHealth;
+        hudScript.SetMaxHP(maxHealth);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +28,7 @@ public class CharacterHealth : MonoBehaviour
             if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
             //Debug.Log(weapon.damage);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+            hudScript.UpdateHealth(currentHealth);
         }
     }
 

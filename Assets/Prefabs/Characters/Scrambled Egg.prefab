@@ -643,6 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
+  hudScript: {fileID: 6509430295967008958}
 --- !u!136 &5739170643259444856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -680,8 +681,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSlotL: {fileID: 0}
   handSlotR: {fileID: 7503636802253059520}
-  targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   entityType: 2
+  isAtacking: 0
 --- !u!54 &-2638352925261552889
 Rigidbody:
   m_ObjectHideFlags: 0
