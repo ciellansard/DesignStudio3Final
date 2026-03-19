@@ -26,6 +26,11 @@ public class CharacterHealth : MonoBehaviour
             isHit = true;
             //Debug.Log("hit a harmful object");
             if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
+            if (other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem particleSystem)) {
+                particleSystem.Play();
+                other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            }
+
             //Debug.Log(weapon.damage);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             hudScript.UpdateHealth(currentHealth);
