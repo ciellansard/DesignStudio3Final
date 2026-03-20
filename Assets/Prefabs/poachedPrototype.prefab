@@ -192,15 +192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834846d3969511d44af530462240da9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
   speed: 7
   mouseSensitivity: 50
   jumpForce: 1.5
   controller: {fileID: 8031476411257728629}
   cameraTransform: {fileID: 4757565953987265212}
   playerCamera: {fileID: 8085728513813116258}
-  sunnyPrimary: {fileID: 0}
-  sunnySecondary: {fileID: 0}
 --- !u!114 &267024553890721519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,8 +308,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSlot: {fileID: 7503636802253059520}
+  handSlotL: {fileID: 0}
+  handSlotR: {fileID: 0}
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  entityType: 0
 --- !u!54 &-2638352925261552889
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -939,6 +938,10 @@ PrefabInstance:
     - target: {fileID: 2946643107582896055, guid: 81516246acdb3894cbc4184994077812, type: 3}
       propertyPath: m_Name
       value: Boiling Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877240294513528437, guid: 81516246acdb3894cbc4184994077812, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5491078349527398602, guid: 81516246acdb3894cbc4184994077812, type: 3}
       propertyPath: m_LocalScale.x

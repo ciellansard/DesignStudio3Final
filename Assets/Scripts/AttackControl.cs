@@ -65,6 +65,8 @@ public class AttackControl : MonoBehaviour
 
                 // Poached
                 case 3:
+
+                    handSlotR.GetComponent<SunnyAttack>().Attack();
                     Debug.Log("poached egg attacks!");
                     break;
 
