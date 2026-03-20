@@ -39,6 +39,7 @@ public class AttackControl : MonoBehaviour
 
                 // Scrambled
                 case 2:
+                    swordAttackScript.attack(handSlotR);
                     Debug.Log("scrambled egg attacks!");
                     break;
 
@@ -81,7 +82,7 @@ public class AttackControl : MonoBehaviour
                 // Scrambled
                 case 2:
                     // Heal
-                    Debug.Log("scrambled egg has no secondary action");
+                    handSlotL.GetComponent<scrambleHeal>().Heal();
                     break;
 
                 // Poached
