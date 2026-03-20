@@ -33,7 +33,7 @@ public class CharacterHealth : MonoBehaviour
 
             //Debug.Log(weapon.damage);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-            hudScript.UpdateHealth(currentHealth);
+            if (hudScript != null) hudScript.UpdateHealth(currentHealth);
         }
     }
 
