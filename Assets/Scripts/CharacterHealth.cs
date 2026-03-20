@@ -11,6 +11,7 @@ public class CharacterHealth : MonoBehaviour
     private EggBarIcons hudScript;
     private bool isHit;
 
+    private GameObject CurrentGameObject;
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -26,10 +27,6 @@ public class CharacterHealth : MonoBehaviour
             isHit = true;
             //Debug.Log("hit a harmful object");
             if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
-            if (other.gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem particleSystem)) {
-                particleSystem.Play();
-                other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            }
 
             //Debug.Log(weapon.damage);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -43,6 +40,19 @@ public class CharacterHealth : MonoBehaviour
         {
             isHit = false;
         }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        //this just makes sure enemies can only be hurt by a single cloud once
+        if (CurrentGameObject == other.gameObject) return;
+       
+        CurrentGameObject = other.gameObject;
+
+
+        if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (hudScript != null) hudScript.UpdateHealth(currentHealth);
     }
 
 }
