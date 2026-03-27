@@ -6280,9 +6280,21 @@ PrefabInstance:
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
       value: 2226791088
       objectReference: {fileID: 0}
+    - target: {fileID: 1703576168671461242, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -330
+      objectReference: {fileID: 0}
+    - target: {fileID: 1703576168671461242, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -140
+      objectReference: {fileID: 0}
     - target: {fileID: 2700598883846432805, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
       propertyPath: m_Name
       value: Scrambled Egg
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700598883846432805, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7991239412905813761, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
       propertyPath: m_LocalPosition.x
