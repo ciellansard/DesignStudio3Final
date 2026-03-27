@@ -45,7 +45,7 @@ public class scrambleHeal : MonoBehaviour
         }
 
         hudScript.UpdateHealth(player.GetComponent<CharacterHealth>().currentHealth);
-        //UnityEngine.Debug.Log(player.GetComponent<CharacterHealth>().currentHealth);
+        UnityEngine.Debug.Log(player.GetComponent<CharacterHealth>().currentHealth);
     }
 
     private IEnumerator RechargeWait(float duration)
