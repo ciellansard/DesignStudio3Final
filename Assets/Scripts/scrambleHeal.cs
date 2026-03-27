@@ -5,10 +5,11 @@ using System.Diagnostics;
 public class scrambleHeal : MonoBehaviour
 {
     public int healPoints = 2;
-    public int rechargeDuration = 3;
+    public int rechargeDuration = 2;
     bool waitTime = true;
     Coroutine rechargeHeal;
     public GameObject player;
+    public ParticleSystem healEffect;
     int defaultHealth;
 
     [SerializeField]
@@ -17,7 +18,7 @@ public class scrambleHeal : MonoBehaviour
     private void Awake()
     {
         defaultHealth = player.GetComponent<CharacterHealth>().maxHealth;
-
+        healEffect.Stop();
     }
 
     public void Heal()
@@ -28,8 +29,9 @@ public class scrambleHeal : MonoBehaviour
 
             if (player.GetComponent<CharacterHealth>().currentHealth < defaultHealth)
             {
-
                 player.GetComponent<CharacterHealth>().currentHealth = player.GetComponent<CharacterHealth>().currentHealth + healPoints;
+
+                healEffect.Play();
 
                 if (player.GetComponent<CharacterHealth>().currentHealth >= defaultHealth)
                 {

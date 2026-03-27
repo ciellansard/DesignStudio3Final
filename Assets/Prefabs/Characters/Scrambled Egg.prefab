@@ -1012,9 +1012,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healPoints: 2
-  rechargeDuration: 1
+  rechargeDuration: 2
   player: {fileID: 2700598883846432805}
-  hudScript: {fileID: 0}
+  healEffect: {fileID: 781453225331795273}
+  hudScript: {fileID: 6509430295967008958}
 --- !u!1 &3542499391340829277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,6 +2217,26 @@ PrefabInstance:
       propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1297691320925596418, guid: 5b926348ed595344caba44de913a1600, type: 3}
+      propertyPath: lengthInSec
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297691320925596418, guid: 5b926348ed595344caba44de913a1600, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297691320925596418, guid: 5b926348ed595344caba44de913a1600, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297691320925596418, guid: 5b926348ed595344caba44de913a1600, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1297691320925596418, guid: 5b926348ed595344caba44de913a1600, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4211321796563314014, guid: 5b926348ed595344caba44de913a1600, type: 3}
       propertyPath: m_Name
       value: Particle System
@@ -2269,6 +2290,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b926348ed595344caba44de913a1600, type: 3}
+--- !u!198 &781453225331795273 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1297691320925596418, guid: 5b926348ed595344caba44de913a1600, type: 3}
+  m_PrefabInstance: {fileID: 1790766826945023563}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6632517514212552565 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4958880424646320446, guid: 5b926348ed595344caba44de913a1600, type: 3}
