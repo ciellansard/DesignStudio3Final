@@ -26,7 +26,7 @@ public class MainMenuManager : MonoBehaviour {
                 break;
             case MenuButtons.credits:
                 break;
-             default:
+            default:
                 Debug.Log("No buttonType for selected button.");
                 break;
         }
