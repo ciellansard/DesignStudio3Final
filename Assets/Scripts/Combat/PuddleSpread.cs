@@ -24,14 +24,43 @@ public class PuddleSpread : MonoBehaviour
         if ((transform.localScale - vectorSize).magnitude > 0.001f) transform.localScale = Vector3.Lerp(transform.localScale, vectorSize, speed * Time.deltaTime);
     }
 
+    /*
     private void OnTriggerEnter(Collider collision)
     {
         Debug.Log("slip slip");
-        collision.gameObject.GetComponent<NavMeshAgent>().speed = 1f;
+
+        if (collision.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<NavMeshAgent>().speed = 1f;
+        }
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        collision.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
+        if (collision.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
+        }
+    } */
+
+    //for if isTrigger is disabled
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("slip slip");
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<NavMeshAgent>().speed = 1f;
+        }
     }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
+        }
+    }
+    
 }
