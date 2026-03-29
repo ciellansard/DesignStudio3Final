@@ -89,7 +89,7 @@ public class AttackControl : MonoBehaviour
                 // Poached
                 case 3:
                     // Cast yolk trap
-                    Debug.Log("poached egg has no secondary action");
+                    handSlotL.GetComponent<PoachedAttack>().Attack();
                     break;
 
                 // Goon
