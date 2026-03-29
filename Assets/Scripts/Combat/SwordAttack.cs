@@ -30,7 +30,7 @@ public class SwordAttack : MonoBehaviour
         //rotate down
         while (Quaternion.Angle(handslot.transform.localRotation, targetRotation) > 0.1f && swingingDown)
         {
-            Debug.Log("swinging down");
+            //Debug.Log("swinging down");
             handslot.transform.localRotation = Quaternion.RotateTowards(handslot.transform.localRotation, targetRotation, swingSpeed * Time.deltaTime);
             if (Quaternion.Angle(handslot.transform.localRotation, targetRotation) < 0.1f) swingingDown = false;
             yield return null;
@@ -40,7 +40,7 @@ public class SwordAttack : MonoBehaviour
         //rotate back up to rest
         while (Quaternion.Angle(handslot.transform.localRotation, restPosition) > 0.1f)
         {
-            Debug.Log("swinging up");
+            //Debug.Log("swinging up");
             handslot.transform.localRotation = Quaternion.RotateTowards(handslot.transform.localRotation, restPosition, swingSpeed * Time.deltaTime);
             yield return null;
         }
