@@ -7,6 +7,9 @@ using Unity.VisualScripting;
 public class AttackControl : MonoBehaviour
 {
     [SerializeField]
+    private CooldownUI cooldownUI;
+
+    [SerializeField]
     private GameObject handSlotL;
     [SerializeField]
     private GameObject handSlotR;
@@ -19,6 +22,7 @@ public class AttackControl : MonoBehaviour
     private void Awake()
     {
         if (GetComponent<SwordAttack>()) swordAttackScript = GetComponent<SwordAttack>();
+        cooldownUI.GetComponent<CooldownUI>();
     }
     public void Attack(bool isMainAttack, int entityType)
     {
@@ -35,6 +39,8 @@ public class AttackControl : MonoBehaviour
                 // Sunny side up
                 case 1:
                     handSlotR.GetComponent<SunnyAttack>().Attack();
+                    Debug.Log(handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
 
                 // Scrambled
@@ -77,6 +83,8 @@ public class AttackControl : MonoBehaviour
                 case 1:
                     // Throw salt
                     handSlotL.GetComponent<SunnyAttack>().Attack();
+                    Debug.Log(handSlotL.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotL.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
 
                 // Scrambled
