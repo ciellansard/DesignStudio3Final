@@ -21,7 +21,7 @@ public class PuddleSpread : MonoBehaviour
 
     private void Update()
     {
-        if ((transform.localScale - vectorSize).magnitude < 0.001f) transform.localScale = Vector3.Lerp(transform.localScale, vectorSize, speed * Time.deltaTime);
+        if ((transform.localScale - vectorSize).magnitude > 0.001f) transform.localScale = Vector3.Lerp(transform.localScale, vectorSize, speed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
