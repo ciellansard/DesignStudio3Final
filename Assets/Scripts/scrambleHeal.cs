@@ -4,8 +4,8 @@ using System.Diagnostics;
 
 public class scrambleHeal : MonoBehaviour
 {
-    public int healPoints = 2;
-    public int rechargeDuration = 2;
+    public int healPoints;
+    public int rechargeDuration;
     bool waitTime = true;
     Coroutine rechargeHeal;
     public GameObject player;
@@ -14,11 +14,16 @@ public class scrambleHeal : MonoBehaviour
 
     [SerializeField]
     private EggBarIcons hudScript;
+    [SerializeField]
+    private SoundManager soundManager;
+    private AudioClip healingSound;
 
     private void Awake()
     {
-        defaultHealth = player.GetComponent<CharacterHealth>().maxHealth;
         healEffect.Stop();
+        defaultHealth = player.GetComponent<CharacterHealth>().maxHealth;
+        healingSound = player.GetComponent<SoundManager>().healing;
+        //soundManager.PlaySound(healingSound);
     }
 
     public void Heal()
@@ -32,12 +37,14 @@ public class scrambleHeal : MonoBehaviour
                 player.GetComponent<CharacterHealth>().currentHealth = player.GetComponent<CharacterHealth>().currentHealth + healPoints;
 
                 healEffect.Play();
+                //soundManager.PlaySound(healingSound);
 
                 if (player.GetComponent<CharacterHealth>().currentHealth >= defaultHealth)
                 {
                     player.GetComponent<CharacterHealth>().currentHealth = defaultHealth;
                     UnityEngine.Debug.Log("Health full");
                 }
+
                 rechargeHeal = StartCoroutine(RechargeWait(rechargeDuration));
             }
         }

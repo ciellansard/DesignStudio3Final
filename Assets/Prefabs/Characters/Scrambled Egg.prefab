@@ -1016,6 +1016,7 @@ MonoBehaviour:
   player: {fileID: 2700598883846432805}
   healEffect: {fileID: 781453225331795273}
   hudScript: {fileID: 6509430295967008958}
+  soundManager: {fileID: 0}
 --- !u!1 &3542499391340829277
 GameObject:
   m_ObjectHideFlags: 0

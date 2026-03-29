@@ -9,10 +9,23 @@ public class SoundManager : MonoBehaviour
     //things that actually play the sounds
     public AudioSource sfxSource;  // For sound effects
     public AudioSource musicSource; // For background music
-   
+
     [Header("Sound Clips")]
-    public AudioClip urMom;
     //you can also use a list of sounds for things u want slight variations in
+    public AudioClip cheers; //listify
+    public AudioClip healing;
+    public AudioClip hurts; //listify
+    public AudioClip impacts; //listify
+    public AudioClip loss;
+    public AudioClip splashes; //listify
+    public AudioClip squishes; //listify
+    public AudioClip steam;
+    public AudioClip steps; //listify
+    public AudioClip swings; //listify
+    public AudioClip thunder;
+    public AudioClip tumble;
+    public AudioClip win;
+    public AudioClip wind;
 
     [Header("Music")]
     public AudioClip urDad;
@@ -26,7 +39,6 @@ public class SoundManager : MonoBehaviour
         }
         else Destroy(gameObject);
     }
-
 
     // Play a sound effect
     public void PlaySound(AudioClip clip)

@@ -2667,7 +2667,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxSource: {fileID: 1901548378}
   musicSource: {fileID: 972989334}
-  urMom: {fileID: 0}
+  cheers: {fileID: 0}
+  healing: {fileID: 8300000, guid: f639faae29389d343b35df892e44faea, type: 3}
+  hurts: {fileID: 0}
+  impacts: {fileID: 0}
+  loss: {fileID: 8300000, guid: 77a08462724e28a47afd205a25a5901c, type: 3}
+  splashes: {fileID: 0}
+  squishes: {fileID: 0}
+  steam: {fileID: 8300000, guid: 9d057d58c5ab47f4895bc8818bf2e72a, type: 3}
+  steps: {fileID: 0}
+  swings: {fileID: 0}
+  thunder: {fileID: 8300000, guid: 26efa10d52df3ce40a4903267d25778e, type: 3}
+  tumble: {fileID: 8300000, guid: 7fd1cc208702b5c44a9bace7302da2e5, type: 3}
+  win: {fileID: 8300000, guid: 05c2cf9819948874e8b6a235bc5e2407, type: 3}
+  wind: {fileID: 8300000, guid: 66d2fe2b9924dcc4cb36d15cf63f72af, type: 3}
   urDad: {fileID: 0}
 --- !u!4 &571026521
 Transform:
@@ -6271,7 +6284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2700598883846432805, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7991239412905813761, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6313,7 +6326,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 202787659129604686, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
