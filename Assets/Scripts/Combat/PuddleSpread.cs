@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem.Utilities;
 
 public class PuddleSpread : MonoBehaviour
@@ -16,7 +17,6 @@ public class PuddleSpread : MonoBehaviour
     {
         transform.localScale = new Vector3(startSize, startSize, startSize);
         vectorSize = new Vector3(endSize, endSize, endSize);
-
     }
 
     private void Update()
@@ -24,8 +24,14 @@ public class PuddleSpread : MonoBehaviour
         if ((transform.localScale - vectorSize).magnitude > 0.001f) transform.localScale = Vector3.Lerp(transform.localScale, vectorSize, speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        
+        Debug.Log("slip slip");
+        collision.gameObject.GetComponent<NavMeshAgent>().speed = 1f;
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+        collision.gameObject.GetComponent<NavMeshAgent>().speed = 5f;
     }
 }

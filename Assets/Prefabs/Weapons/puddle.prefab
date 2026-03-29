@@ -136,5 +136,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSize: 1
-  endSize: 100
-  speed: 0.5
+  endSize: 150
+  speed: 1
