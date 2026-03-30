@@ -95,6 +95,8 @@ public class AttackControl : MonoBehaviour
                 case 2:
                     // Heal
                     handSlotL.GetComponent<scrambleHeal>().Heal();
+                    Debug.Log("Recharge timer: " + handSlotL.GetComponent<scrambleHeal>().rechargeDuration);
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotL.GetComponent<scrambleHeal>().rechargeDuration);
                     break;
 
                 // Poached
