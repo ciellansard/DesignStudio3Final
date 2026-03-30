@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownUI: {fileID: 0}
+  cooldownUI: {fileID: 7708328043931232053}
   handSlotL: {fileID: 0}
   handSlotR: {fileID: 7503636802253059520}
   entityType: 0

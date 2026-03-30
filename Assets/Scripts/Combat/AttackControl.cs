@@ -34,12 +34,16 @@ public class AttackControl : MonoBehaviour
                 // Hard boiled
                 case 0:
                     swordAttackScript.attack(handSlotR);
+                    // attacks too fast, no cooldown needed
+                    //Debug.Log(handSlotR.GetComponentInChildren<WeaponData>().swingSpeed);
+                    //cooldownUI.cooldownTimer(isMainAttack, handSlotR.GetComponentInChildren<WeaponData>().swingSpeed);
                     break;
 
                 // Sunny side up
                 case 1:
                     handSlotR.GetComponent<SunnyAttack>().Attack();
-                    Debug.Log(handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
+                    //Debug.Log(handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
+                    // If lost, the inputs are this: cooldownTimer(isMainAttack, duration)
                     cooldownUI.cooldownTimer(isMainAttack, handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
 
