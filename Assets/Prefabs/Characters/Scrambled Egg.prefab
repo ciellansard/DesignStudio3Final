@@ -657,7 +657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 4d40119a18a0dfd4db0b7d8d3e9edeb4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -953,6 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  trail: {fileID: 0}
 --- !u!1 &3139623814972996091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,7 +2276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 055e3158f4183b449a204eeb3174ffa6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
