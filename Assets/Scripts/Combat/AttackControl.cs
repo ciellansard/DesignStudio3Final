@@ -13,6 +13,7 @@ public class AttackControl : MonoBehaviour
     private GameObject handSlotL;
     [SerializeField]
     private GameObject handSlotR;
+  
 
     public int entityType; // 0 = hard, 1 = sunny, 2 = scrambled, 3 = poached, 4 = goons, 5 = devilled egg
     private SwordAttack swordAttackScript;
@@ -55,6 +56,7 @@ public class AttackControl : MonoBehaviour
 
                 // Poached
                 case 3:
+                    handSlotR.GetComponent<PoachedAttack>().Attack();
                     Debug.Log("poached egg attacks!");
                     break;
 
@@ -102,7 +104,7 @@ public class AttackControl : MonoBehaviour
                 // Poached
                 case 3:
                     // Cast yolk trap
-                    Debug.Log("poached egg has no secondary action");
+                    handSlotL.GetComponent<PoachedAttack>().Attack();
                     break;
 
                 // Goon
