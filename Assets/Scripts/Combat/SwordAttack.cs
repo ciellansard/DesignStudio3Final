@@ -8,6 +8,9 @@ public class SwordAttack : MonoBehaviour
     public Coroutine rotateCoroutine;
     bool swingingDown = true;
 
+    [SerializeField]
+    private TrailRenderer trail;
+
     public void attack(GameObject handslot)
     {
         //restPosition = Quaternion.Euler(0, 0, 0);
@@ -17,6 +20,8 @@ public class SwordAttack : MonoBehaviour
         swingingDown = true;
 
         //this is a disgusting call, but i don't have a better solution at the moment
+        trail.enabled = true;
+        trail.emitting = true;
         rotateCoroutine = StartCoroutine(RotateToAngle(handslot.transform.GetComponentInChildren<WeaponData>().swingSpeed, handslot));
     }
 
@@ -30,6 +35,8 @@ public class SwordAttack : MonoBehaviour
             if (Quaternion.Angle(handslot.transform.localRotation, targetRotation) < 0.1f) swingingDown = false;
             yield return null;
         }
+        trail.emitting = false;
+        trail.enabled = false;
         //rotate back up to rest
         while (Quaternion.Angle(handslot.transform.localRotation, restPosition) > 0.1f)
         {
@@ -39,6 +46,9 @@ public class SwordAttack : MonoBehaviour
         }
 
         handslot.transform.localRotation = restPosition;
+
+        yield return new WaitForSeconds(0.5f);
+
         rotateCoroutine = null;
     }
 }
