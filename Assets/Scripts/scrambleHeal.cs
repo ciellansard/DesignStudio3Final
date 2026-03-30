@@ -16,13 +16,11 @@ public class scrambleHeal : MonoBehaviour
     private EggBarIcons hudScript;
     [SerializeField]
     private SoundManager soundManager;
-    private AudioClip healingSound;
 
     private void Awake()
     {
         healEffect.Stop();
         defaultHealth = player.GetComponent<CharacterHealth>().maxHealth;
-        healingSound = player.GetComponent<SoundManager>().healing;
         //soundManager.PlaySound(healingSound);
     }
 
@@ -37,7 +35,7 @@ public class scrambleHeal : MonoBehaviour
                 player.GetComponent<CharacterHealth>().currentHealth = player.GetComponent<CharacterHealth>().currentHealth + healPoints;
 
                 healEffect.Play();
-                //soundManager.PlaySound(healingSound);
+                soundManager.PlaySound(soundManager.healing);
 
                 if (player.GetComponent<CharacterHealth>().currentHealth >= defaultHealth)
                 {

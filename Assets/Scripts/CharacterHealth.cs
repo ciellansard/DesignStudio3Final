@@ -10,11 +10,27 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField]
     private EggBarIcons hudScript;
     private bool isHit;
+    [SerializeField]
+    private SoundManager soundManager;
 
     private void Awake()
     {
         currentHealth = maxHealth;
-        hudScript.SetMaxHP(maxHealth);
+        if (gameObject.CompareTag("Player"))
+        {
+            hudScript.SetMaxHP(maxHealth);
+        }
+    }
+
+    private void Update()
+    {
+        if (gameObject.CompareTag("Player"))
+        {
+            if (currentHealth <= 0)
+            {
+                soundManager.PlaySound(soundManager.loss);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
