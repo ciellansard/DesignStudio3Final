@@ -71,11 +71,18 @@ public class VrPlayerController : MonoBehaviour
 
 
         // Execute main or secondary attack when left or right trigger is pressed.
-        float leftTrigger = leftTriggerAction.action.ReadValue<float>();
-        float rightTrigger = rightTriggerAction.action.ReadValue<float>();
-        Debug.Log($"L: {leftTrigger} | R: {rightTrigger}");
-        if (rightTrigger > 0.8f) attackControl.Attack(true, attackControl.entityType);
-        if (leftTrigger > 0.8f) attackControl.Attack(false, attackControl.entityType);
+        if (leftTriggerAction.action != null)
+        {
+            float leftTrigger = leftTriggerAction.action.ReadValue<float>();
+            if (leftTrigger > 0.8f) attackControl.Attack(false, attackControl.entityType);
+        }
 
+        if (rightTriggerAction.action != null)
+        {
+            float rightTrigger = rightTriggerAction.action.ReadValue<float>();
+            if (rightTrigger > 0.8f) attackControl.Attack(true, attackControl.entityType);
+        }
+       
+        //Debug.Log($"L: {leftTrigger} | R: {rightTrigger}");
     }
 }

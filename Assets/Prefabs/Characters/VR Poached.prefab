@@ -287,7 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3733606267904257863}
   m_Layer: 0
-  m_Name: VR Sunny Side Up
+  m_Name: VR Poached
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,7 +423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2448081882405560839}
   - component: {fileID: 8441894900228734216}
-  - component: {fileID: 2355211884819505293}
+  - component: {fileID: 6843058605431626357}
   m_Layer: 0
   m_Name: LeftHand
   m_TagString: Untagged
@@ -519,7 +519,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
---- !u!114 &2355211884819505293
+--- !u!114 &6843058605431626357
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -528,11 +528,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1288084136906718407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94eb16065c460844097a8a4ac767f952, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e383a24eefc690419017143c38e9297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 6147672661478255661}
-  projectile: {fileID: 417088828062988602, guid: ea6af3e1da331ff4ca34c8bede5ef003, type: 3}
+  projectile: {fileID: 9146324806573155861, guid: 8956a7fb5ec1cba4fa330afef2076776, type: 3}
 --- !u!1 &1306444157329655528
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8019969188354673943}
   - component: {fileID: 3219289298699556468}
-  - component: {fileID: 3304749402462783693}
+  - component: {fileID: 9149487351560501816}
   m_Layer: 0
   m_Name: RightHand
   m_TagString: Untagged
@@ -640,7 +640,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
---- !u!114 &3304749402462783693
+--- !u!114 &9149487351560501816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -649,11 +649,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1306444157329655528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94eb16065c460844097a8a4ac767f952, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e383a24eefc690419017143c38e9297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 6147672661478255661}
-  projectile: {fileID: 417088828062988602, guid: 95ab9ba1d6e378a439868478af1fcdd1, type: 3}
+  projectile: {fileID: 417088828062988602, guid: 5d153b58c19450040b85980eb986d8a7, type: 3}
 --- !u!1 &1741434228876057399
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSlotL: {fileID: 1288084136906718407}
   handSlotR: {fileID: 1306444157329655528}
-  entityType: 1
+  entityType: 3
   isAtacking: 0
 --- !u!114 &1175346372415474803
 MonoBehaviour:
