@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 6147672661478255661}
-  projectile: {fileID: 417088828062988602, guid: 95ab9ba1d6e378a439868478af1fcdd1, type: 3}
+  projectile: {fileID: 417088828062988602, guid: 9a9afcbe64aa83546bfeeae745abd5cd, type: 3}
 --- !u!114 &619482017551200597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,7 +2185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 6147672661478255661}
-  projectile: {fileID: 417088828062988602, guid: ea6af3e1da331ff4ca34c8bede5ef003, type: 3}
+  projectile: {fileID: 417088828062988602, guid: 1b1fd1e2c3d90be409daeba0fe3a8a78, type: 3}
 --- !u!114 &8952240611438874342
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1589,7 +1589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 8085728513813116258}
-  projectile: {fileID: 417088828062988602, guid: 95ab9ba1d6e378a439868478af1fcdd1, type: 3}
+  projectile: {fileID: 417088828062988602, guid: 9a9afcbe64aa83546bfeeae745abd5cd, type: 3}
 --- !u!1 &5530839433423314951
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 8085728513813116258}
-  projectile: {fileID: 417088828062988602, guid: ea6af3e1da331ff4ca34c8bede5ef003, type: 3}
+  projectile: {fileID: 417088828062988602, guid: 1b1fd1e2c3d90be409daeba0fe3a8a78, type: 3}
 --- !u!1 &6317840820628317594
 GameObject:
   m_ObjectHideFlags: 0
