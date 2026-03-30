@@ -13,6 +13,7 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField]
     private SoundManager soundManager;
 
+    private GameObject CurrentGameObject;
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -42,9 +43,11 @@ public class CharacterHealth : MonoBehaviour
             isHit = true;
             //Debug.Log("hit a harmful object");
             if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
+            if (gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem particles)) particles.Play();
+
             //Debug.Log(weapon.damage);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-            hudScript.UpdateHealth(currentHealth);
+            if (hudScript != null) hudScript.UpdateHealth(currentHealth);
         }
     }
 
@@ -54,6 +57,20 @@ public class CharacterHealth : MonoBehaviour
         {
             isHit = false;
         }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        //this just makes sure enemies can only be hurt by a single cloud once
+        if (CurrentGameObject == other.gameObject) return;
+       
+        CurrentGameObject = other.gameObject;
+
+
+        if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
+        if (gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem particles)) particles.Play();
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (hudScript != null) hudScript.UpdateHealth(currentHealth);
     }
 
 }
