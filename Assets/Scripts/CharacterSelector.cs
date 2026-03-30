@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterSelector : MonoBehaviour {
-
+    // a link to the selector data
     public CharacterSelectorData selectorData;
+
+    // UI elements
     public Image charPreviewImg;
     public Button leftButton;
     public Button rightButton;
