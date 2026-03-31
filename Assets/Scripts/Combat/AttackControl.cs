@@ -23,7 +23,7 @@ public class AttackControl : MonoBehaviour
     private void Awake()
     {
         if (GetComponent<SwordAttack>()) swordAttackScript = GetComponent<SwordAttack>();
-        cooldownUI.GetComponent<CooldownUI>();
+        if (cooldownUI != null) cooldownUI.GetComponent<CooldownUI>();
     }
     public void Attack(bool isMainAttack, int entityType)
     {

@@ -17,9 +17,18 @@ MonoBehaviour:
   - {fileID: 2700598883846432805, guid: 0891471c658aa4e429eacff0864251d7, type: 3}
   - {fileID: 2700598883846432805, guid: ad9ac12b8518e0e48ae8318d70eb0932, type: 3}
   - {fileID: 2700598883846432805, guid: d499f7198eb3f0244b955579b77ae25d, type: 3}
+  VRCharacters:
+  - {fileID: 815270284304087259, guid: 9e43ed4bdf8b13147bcf421a1524d404, type: 3}
+  - {fileID: 815270284304087259, guid: 7b4a998a24aa7b545956a38fe76e5e92, type: 3}
+  - {fileID: 815270284304087259, guid: b0638c684e4b3054ea3b82c25f8e54d2, type: 3}
+  - {fileID: 815270284304087259, guid: 8004009639dc04f4caa59b4201b3c641, type: 3}
   charPreviewImg:
   - {fileID: 21300000, guid: f1d3d3eefd0ec7c45b86884bf8f2424c, type: 3}
   - {fileID: 21300000, guid: f7dfa14dddf193440aa540902e30cacc, type: 3}
   - {fileID: 21300000, guid: 3dac5894339464345a601c5130652601, type: 3}
   - {fileID: 21300000, guid: 4ad038e6dbd96194bba908ffbcfd1f2a, type: 3}
-  selectedIndex: 0
+  selectedIndex: 1
+  VR: 0
+  VRSim: 0
+  SnapTurn: 0
+  Teleport: 0

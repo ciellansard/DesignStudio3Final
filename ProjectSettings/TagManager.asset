@@ -8,6 +8,11 @@ TagManager:
   - Ground
   - Enemy
   - Slippery
+  - Simulator
+  - Snap Turn
+  - Smooth Turn
+  - Smooth Walk
+  - Teleport
   layers:
   - Default
   - TransparentFX

@@ -761,6 +761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   handSlotL: {fileID: 1288084136906718407}
   handSlotR: {fileID: 1306444157329655528}
   entityType: 3
@@ -829,11 +830,11 @@ GameObject:
   - component: {fileID: 1656756539271860628}
   m_Layer: 0
   m_Name: Teleport
-  m_TagString: Untagged
+  m_TagString: Teleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8418373572172529185
 Transform:
   m_ObjectHideFlags: 0
@@ -963,7 +964,7 @@ GameObject:
   - component: {fileID: 518854098076246178}
   m_Layer: 0
   m_Name: Turn
-  m_TagString: Untagged
+  m_TagString: Smooth Turn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1040,11 +1041,11 @@ GameObject:
   - component: {fileID: 4738753990252713757}
   m_Layer: 0
   m_Name: Snap Turn
-  m_TagString: Untagged
+  m_TagString: Snap Turn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2134541307923992148
 Transform:
   m_ObjectHideFlags: 0
@@ -1629,7 +1630,7 @@ GameObject:
   - component: {fileID: 505899695657072278}
   m_Layer: 0
   m_Name: Move
-  m_TagString: Untagged
+  m_TagString: Smooth Walk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2277,7 +2278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135023674665499069, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
+      propertyPath: m_TagString
+      value: Simulator
       objectReference: {fileID: 0}
     - target: {fileID: 8518324294302271954, guid: 58d0a4ac86f2348deb02f3880c71378e, type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,6 +9,10 @@ public class CharacterSelector : MonoBehaviour {
     public Image charPreviewImg;
     public Button leftButton;
     public Button rightButton;
+    public Toggle VR;
+    public Toggle VRSim;
+    public Toggle SnapTurn;
+    public Toggle Teleport;
 
     void Start() {
         leftButton.onClick.AddListener(CycleLeft);
@@ -30,7 +34,13 @@ public class CharacterSelector : MonoBehaviour {
         UpdateDisplay();
     }
 
-    void UpdateDisplay() {
+    //calling this on all the toggles now too
+    public void UpdateDisplay() {
         charPreviewImg.sprite = selectorData.charPreviewImg[selectorData.selectedIndex];
+        selectorData.VR = VR.isOn;
+        selectorData.VRSim = VRSim.isOn;
+        selectorData.SnapTurn = SnapTurn.isOn;
+        selectorData.Teleport = Teleport.isOn;
     }
+
 }
