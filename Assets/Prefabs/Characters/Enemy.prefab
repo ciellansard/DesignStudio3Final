@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3793096567193357488}
   - component: {fileID: 7076373593123461956}
   - component: {fileID: 569815831363778901}
+  - component: {fileID: 1640718269912798787}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -138,6 +139,18 @@ CapsuleCollider:
   m_Height: 0.025858859
   m_Direction: 2
   m_Center: {x: -0.00021759966, y: 0.00005488503, z: 0.012723361}
+--- !u!114 &1640718269912798787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 805824183438398675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1513669068392933011
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +197,7 @@ GameObject:
   - component: {fileID: 4232014601862776190}
   - component: {fileID: 9121681317591523572}
   - component: {fileID: 7942969223611345294}
+  - component: {fileID: 2236365361462214523}
   m_Layer: 0
   m_Name: Right Hand
   m_TagString: Untagged
@@ -307,6 +321,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0033940962
   m_Center: {x: -0.0031583803, y: -0.014649633, z: 0.013431554}
+--- !u!114 &2236365361462214523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745205343502425193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3315110336442620289
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +346,7 @@ GameObject:
   - component: {fileID: 8046483960938617632}
   - component: {fileID: 8952037331042920849}
   - component: {fileID: 4792081998378504652}
+  - component: {fileID: 9976517409316093}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -443,6 +470,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.02
   m_Center: {x: 0, y: 0, z: 0.0359461}
+--- !u!114 &9976517409316093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315110336442620289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6315062529595221329
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,6 +501,7 @@ GameObject:
   - component: {fileID: -2817581328507679079}
   - component: {fileID: 5444038156114265431}
   - component: {fileID: 66454879980067182}
+  - component: {fileID: 3569745588454542967}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -5530,6 +5570,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3569745588454542967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315062529595221329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b44c886c60134d884738f0ac9919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenFootsteps: 0.3
+  maxTimeBetweenFootsteps: 0.6
 --- !u!1 &7309063712914870638
 GameObject:
   m_ObjectHideFlags: 0
@@ -5543,6 +5597,7 @@ GameObject:
   - component: {fileID: 9133080947569600026}
   - component: {fileID: 7186463084193062563}
   - component: {fileID: 2976650710037139402}
+  - component: {fileID: 11729998170096006}
   m_Layer: 0
   m_Name: Left Hand
   m_TagString: Untagged
@@ -5666,6 +5721,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0033940962
   m_Center: {x: -0.0031583812, y: 0.014649599, z: 0.013431554}
+--- !u!114 &11729998170096006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7309063712914870638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6806520250648704926
 PrefabInstance:
   m_ObjectHideFlags: 0

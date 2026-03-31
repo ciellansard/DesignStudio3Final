@@ -237,7 +237,6 @@ public class SoundManager : MonoBehaviour
             yield return null;
         }
 
-
         source.volume = 0;
         StopSound();
         //Destroy(source.gameObject);

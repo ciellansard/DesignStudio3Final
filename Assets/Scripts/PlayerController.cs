@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer = true;
     private GameObject[] enemies;
 
-    [SerializeField]
-    private SoundManager soundManager;
+    private FootstepManager footstepManager;
+    private bool isWalking = false;
 
     private void Awake()
     {
@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour
         {
             enemy.GetComponent<EnemyAI>().UpdatePlayerList();
         }
+
+        footstepManager = GetComponent<FootstepManager>();
     }
 
     // Update is called once per frame
@@ -68,7 +70,6 @@ public class PlayerController : MonoBehaviour
                 playerGravity.y = -2f;
         }
 
-
         Vector2 moveInput = Keyboard.current != null ? new Vector2 
             (
                 (Keyboard.current.aKey.isPressed ? -1 : 0) + (Keyboard.current.dKey.isPressed ? 1 : 0),
@@ -78,6 +79,9 @@ public class PlayerController : MonoBehaviour
         //movement
         Vector3 move = transform.right * moveInput.x + transform.forward * moveInput.y + transform.up * playerGravity.y;
         controller.Move(move * speed * Time.deltaTime);
+
+        if (groundedPlayer && moveInput.x != 0 || groundedPlayer && moveInput.y != 0) isWalking = true;
+        else isWalking = false;
 
         //gravity
         playerGravity.y += gravity * Time.deltaTime;
@@ -105,6 +109,15 @@ public class PlayerController : MonoBehaviour
         // Execute main or secondary attack when e or q is pressed.
         if (Keyboard.current.eKey.isPressed) attackControl.Attack(true, attackControl.entityType);
         else if (Keyboard.current.qKey.isPressed) attackControl.Attack(false, attackControl.entityType);
+
+        if (isWalking)
+        {
+            footstepManager.StartWalking();
+        }
+        else
+        {
+            footstepManager.StopWalking();
+        }
     }
 }
 

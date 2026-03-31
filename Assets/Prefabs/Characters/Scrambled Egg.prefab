@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: -2638352925261552889}
   - component: {fileID: -4173462141252369718}
   - component: {fileID: 2257780241203749066}
+  - component: {fileID: 710709002793146734}
   m_Layer: 6
   m_Name: Scrambled Egg
   m_TagString: Player
@@ -644,7 +645,6 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   hudScript: {fileID: 6509430295967008958}
-  soundManager: {fileID: 0}
 --- !u!136 &5739170643259444856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -742,6 +742,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   trail: {fileID: 0}
+--- !u!114 &710709002793146734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700598883846432805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b44c886c60134d884738f0ac9919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenFootsteps: 0.3
+  maxTimeBetweenFootsteps: 0.6
 --- !u!1 &3139623814972996091
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,7 +1032,6 @@ MonoBehaviour:
   player: {fileID: 2700598883846432805}
   healEffect: {fileID: 781453225331795273}
   hudScript: {fileID: 6509430295967008958}
-  soundManager: {fileID: 0}
 --- !u!1 &3542499391340829277
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,7 +37,8 @@ public class PoachedAttack : MonoBehaviour
             pCopy.SetActive(true);
             pCopy.GetComponent<Rigidbody>().linearVelocity = playerCam.transform.forward * 20;
 
-            soundManager.PlaySound(soundManager.wind, 1);
+            soundManager.PlaySound(soundManager.wind);
+            soundManager.FadeOutSfx(1);
 
             rechargeProjectile = StartCoroutine(RechargeWait(projectile.GetComponent<WeaponData>().swingSpeed));
         }

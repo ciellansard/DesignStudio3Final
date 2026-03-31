@@ -11,6 +11,12 @@ public class SwordAttack : MonoBehaviour
     [SerializeField]
     private TrailRenderer trail;
 
+    private SoundManager soundManager;
+    private void Awake()
+    {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+    }
+
     public void attack(GameObject handslot)
     {
         //restPosition = Quaternion.Euler(0, 0, 0);
@@ -22,6 +28,10 @@ public class SwordAttack : MonoBehaviour
         //this is a disgusting call, but i don't have a better solution at the moment
         trail.enabled = true;
         trail.emitting = true;
+
+        soundManager.PlaySound(soundManager.wind);
+        soundManager.FadeOutSfx(1);
+
         rotateCoroutine = StartCoroutine(RotateToAngle(handslot.transform.GetComponentInChildren<WeaponData>().swingSpeed, handslot));
     }
 

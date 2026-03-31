@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ParticleWeapon : MonoBehaviour
+public class SteamParticle : MonoBehaviour
 {
     [SerializeField]
     MeshRenderer mesh;
@@ -26,7 +26,7 @@ public class ParticleWeapon : MonoBehaviour
 
         if (playDaThing)
         {
-            soundManager.PlaySound(soundManager.impacts);
+            soundManager.PlaySound(soundManager.steam, 1);
             playDaThing = false;
         }
 

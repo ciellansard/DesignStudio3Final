@@ -15,6 +15,12 @@ public class PaprikaStorm : MonoBehaviour
     private float nextStormTime;
     private float nextPaprikaTime;
 
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+    }
 
     void Update()
     {
@@ -38,6 +44,8 @@ public class PaprikaStorm : MonoBehaviour
             // They have random rotations on them just for visual variation.
             if (Time.time >= nextStormTime && Time.time <= nextStormTime + stormDuration)
             {
+                soundManager.PlaySound(soundManager.thunder);
+                //soundManager.FadeOutSfx(2);
                 Vector2 paprikaPos = Random.insideUnitCircle;
                 Instantiate(paprikaPrefab[((int)(Time.time * 100)) % paprikaPrefab.Length], new Vector3(paprikaPos.x * stormRadius, stormCentre.y, paprikaPos.y * stormRadius), Quaternion.Euler(Random.Range(0, 20), Random.Range(0, 360), 0));
             }

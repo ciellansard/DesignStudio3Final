@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: -2638352925261552889}
   - component: {fileID: -4173462141252369718}
   - component: {fileID: 2061251917262365180}
+  - component: {fileID: -87497528014434812}
   m_Layer: 6
   m_Name: Hard Boiled Egg
   m_TagString: Player
@@ -499,8 +500,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1698874693473501368}
-  - {fileID: 8400626450073039215}
   - {fileID: 5298426449899914110}
+  - {fileID: 8400626450073039215}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8031476411257728629
@@ -744,6 +745,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
   trail: {fileID: 7745400012242417340}
+--- !u!114 &-87497528014434812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700598883846432805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b44c886c60134d884738f0ac9919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenFootsteps: 0.3
+  maxTimeBetweenFootsteps: 0.6
 --- !u!1 &3139623814972996091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,14 +2268,14 @@ RectTransform:
   m_GameObject: {fileID: 8066289268804299420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.30465904, y: 0.30465904, z: 0.30465904}
+  m_LocalScale: {x: 0.3875515, y: 0.3875515, z: 0.3875515}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5298426449899914110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188, y: 24}
+  m_AnchoredPosition: {x: -290, y: -122}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8058500261221148902
