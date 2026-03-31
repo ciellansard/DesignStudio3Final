@@ -538,13 +538,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlobalObjectIdHash: 2226791088
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  InScenePlacedSourceGlobalObjectIdHash: 2226791088
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
+  SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
@@ -644,6 +644,7 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   hudScript: {fileID: 6509430295967008958}
+  soundManager: {fileID: 0}
 --- !u!136 &5739170643259444856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -740,6 +741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetRotation: {x: 0.70710677, y: 0, z: 0, w: 0.70710677}
+  trail: {fileID: 0}
 --- !u!1 &3139623814972996091
 GameObject:
   m_ObjectHideFlags: 0

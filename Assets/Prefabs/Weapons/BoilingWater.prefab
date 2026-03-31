@@ -5029,6 +5029,7 @@ MonoBehaviour:
   mesh: {fileID: 5657026541125603825}
   particles: {fileID: 821459381344131651}
   subMesh: {fileID: 5751855936498018992}
+  soundManager: {fileID: 2323819040336560688, guid: 45ae2a1594e4d114a8dc11c7c76d24d2, type: 3}
 --- !u!1 &5751855936498018992
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField]
     private EggBarIcons hudScript;
     private bool isHit;
-    [SerializeField]
     private SoundManager soundManager;
 
     private GameObject CurrentGameObject;
@@ -21,6 +20,7 @@ public class CharacterHealth : MonoBehaviour
         {
             hudScript.SetMaxHP(maxHealth);
         }
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -44,10 +44,11 @@ public class CharacterHealth : MonoBehaviour
             //Debug.Log("hit a harmful object");
             if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
             if (gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem particles)) particles.Play();
-
             //Debug.Log(weapon.damage);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             if (hudScript != null) hudScript.UpdateHealth(currentHealth);
+            if (gameObject.CompareTag("Player")) soundManager.PlaySound(soundManager.hurts);
+            if (gameObject.CompareTag("Enemy")) soundManager.PlaySound(soundManager.impacts);
         }
     }
 

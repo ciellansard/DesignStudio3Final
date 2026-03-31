@@ -14,13 +14,13 @@ public class scrambleHeal : MonoBehaviour
 
     [SerializeField]
     private EggBarIcons hudScript;
-    [SerializeField]
     private SoundManager soundManager;
 
     private void Awake()
     {
         healEffect.Stop();
         defaultHealth = player.GetComponent<CharacterHealth>().maxHealth;
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         //soundManager.PlaySound(healingSound);
     }
 
@@ -36,13 +36,16 @@ public class scrambleHeal : MonoBehaviour
 
                 healEffect.Play();
                 soundManager.PlaySound(soundManager.healing);
+                soundManager.FadeOutSfx(1);
 
                 if (player.GetComponent<CharacterHealth>().currentHealth >= defaultHealth)
                 {
                     player.GetComponent<CharacterHealth>().currentHealth = defaultHealth;
                     UnityEngine.Debug.Log("Health full");
+                    soundManager.PlaySound(soundManager.cheers);
                 }
 
+                //UnityEngine.Debug.Log("hi");
                 rechargeHeal = StartCoroutine(RechargeWait(rechargeDuration));
             }
         }
@@ -57,7 +60,10 @@ public class scrambleHeal : MonoBehaviour
 
     private IEnumerator RechargeWait(float duration)
     {
+        //UnityEngine.Debug.Log("two");
         yield return new WaitForSeconds(duration);
+        //UnityEngine.Debug.Log("three");
         waitTime = true;
+        //UnityEngine.Debug.Log("four");
     }
 }

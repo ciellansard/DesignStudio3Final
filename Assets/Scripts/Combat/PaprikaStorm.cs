@@ -15,6 +15,7 @@ public class PaprikaStorm : MonoBehaviour
     private float nextStormTime;
     private float nextPaprikaTime;
 
+
     void Update()
     {
         if (playerSpotted)

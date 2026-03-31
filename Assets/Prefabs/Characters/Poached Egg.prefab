@@ -734,6 +734,7 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   hudScript: {fileID: 2344656183497841654}
+  soundManager: {fileID: 2323819040336560688, guid: 45ae2a1594e4d114a8dc11c7c76d24d2, type: 3}
 --- !u!114 &767175678870173410
 MonoBehaviour:
   m_ObjectHideFlags: 0

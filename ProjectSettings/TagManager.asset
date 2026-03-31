@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Enemy
   - Slippery
+  - SoundManager
   layers:
   - Default
   - TransparentFX

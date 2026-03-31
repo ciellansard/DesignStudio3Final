@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer = true;
     private GameObject[] enemies;
 
+    [SerializeField]
+    private SoundManager soundManager;
+
     private void Awake()
     {
         //changes spawnpoint from 0,0,0 to counter
@@ -104,3 +107,4 @@ public class PlayerController : MonoBehaviour
         else if (Keyboard.current.qKey.isPressed) attackControl.Attack(false, attackControl.entityType);
     }
 }
+

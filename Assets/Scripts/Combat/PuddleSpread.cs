@@ -52,6 +52,8 @@ public class PuddleSpread : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<NavMeshAgent>().speed = 1f;
+
+
         }
     }
 
