@@ -20,8 +20,11 @@ public class SwordAttack : MonoBehaviour
         swingingDown = true;
 
         //this is a disgusting call, but i don't have a better solution at the moment
-        trail.enabled = true;
-        trail.emitting = true;
+        if (trail != null)
+        {
+            trail.enabled = true;
+            trail.emitting = true;
+        }
         rotateCoroutine = StartCoroutine(RotateToAngle(handslot.transform.GetComponentInChildren<WeaponData>().swingSpeed, handslot));
     }
 
@@ -35,8 +38,11 @@ public class SwordAttack : MonoBehaviour
             if (Quaternion.Angle(handslot.transform.localRotation, targetRotation) < 0.1f) swingingDown = false;
             yield return null;
         }
-        trail.emitting = false;
-        trail.enabled = false;
+        if (trail != null)
+        {
+            trail.emitting = false;
+            trail.enabled = false;
+        }
         //rotate back up to rest
         while (Quaternion.Angle(handslot.transform.localRotation, restPosition) > 0.1f)
         {
