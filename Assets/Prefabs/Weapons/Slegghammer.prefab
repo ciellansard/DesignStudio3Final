@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4441815052197533260}
   m_Layer: 0
   m_Name: Slegghammer
-  m_TagString: Untagged
+  m_TagString: Harmful
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,12 +208,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6193928, y: 0.3074067, z: 0.40587214}
-  m_Center: {x: 0.000000029802322, y: 0.53633046, z: -0.0070171505}
+  m_Size: {x: 0.6193928, y: 0.69840026, z: 0.40587214}
+  m_Center: {x: 0.000000029802322, y: 0.55136216, z: -0.0070171505}
 --- !u!1 &1472171267725989548
 GameObject:
   m_ObjectHideFlags: 0
