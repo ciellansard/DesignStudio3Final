@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingSpeed: 5
-  damage: 10
+  damage: 3
 --- !u!1 &5637643745822863297
 GameObject:
   m_ObjectHideFlags: 0

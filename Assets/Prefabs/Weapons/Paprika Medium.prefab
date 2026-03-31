@@ -198,4 +198,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingSpeed: 5
-  damage: 8
+  damage: 2
