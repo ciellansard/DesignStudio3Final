@@ -12,7 +12,7 @@ public class PaprikaController : MonoBehaviour
     {
         timeOfCreation = Time.time;
         player = GameObject.FindGameObjectWithTag("Player"); // probably not very performant...
-        Debug.Log("Player name is " + player.name);
+        //Debug.Log("Player name is " + player.name);
     }
 
     void Update()
