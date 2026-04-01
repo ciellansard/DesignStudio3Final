@@ -23,16 +23,16 @@ public class CharacterHealth : MonoBehaviour
         soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
-    private void Update()
-    {
-        if (gameObject.CompareTag("Player"))
-        {
-            if (currentHealth <= 0)
-            {
-                soundManager.PlaySound(soundManager.loss);
-            }
-        }
-    }
+    //private void Update()
+    //{
+    //    if (gameObject.CompareTag("Player"))
+    //    {
+    //        if (currentHealth <= 0)
+    //        {
+    //            soundManager.PlaySound(soundManager.loss);
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
