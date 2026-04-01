@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1986208148779515751}
   - component: {fileID: 3308599162758884132}
   - component: {fileID: 5721365538330149016}
-  - component: {fileID: -4114897004763972908}
   - component: {fileID: 3109782141269516383}
   - component: {fileID: 6608523575608197390}
+  - component: {fileID: 1060177725972704274}
   m_Layer: 0
   m_Name: Baggie
   m_TagString: Harmful
@@ -4966,21 +4966,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swingSpeed: 1
   damage: 3
---- !u!114 &-4114897004763972908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83113484236748354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb2f1dbe95980540ae423c8db6e182f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mesh: {fileID: 7015505694997781669}
-  particles: {fileID: 3308599162758884132}
-  subMesh: {fileID: 5225320913999767438}
 --- !u!135 &3109782141269516383
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5029,6 +5014,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1060177725972704274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83113484236748354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a864b7617c043a4b8c70bb1c0b0be7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 7015505694997781669}
+  particles: {fileID: 3308599162758884132}
+  subMesh: {fileID: 5225320913999767438}
 --- !u!1 &5225320913999767438
 GameObject:
   m_ObjectHideFlags: 0
