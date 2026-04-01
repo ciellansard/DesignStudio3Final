@@ -977,6 +977,7 @@ GameObject:
   - component: {fileID: 2094514108740180597}
   - component: {fileID: 517344181633832480}
   - component: {fileID: 7874817151695482948}
+  - component: {fileID: 8450855427375382478}
   m_Layer: 0
   m_Name: Devilled Egg
   m_TagString: Enemy
@@ -1212,6 +1213,20 @@ MonoBehaviour:
   stormDuration: 1
   stormCentre: {x: 0, y: 20, z: 0}
   stormRadius: 32
+--- !u!114 &8450855427375382478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8507361655390544598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b44c886c60134d884738f0ac9919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenFootsteps: 0.3
+  maxTimeBetweenFootsteps: 0.6
 --- !u!1 &8586957328463499126
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ TagManager:
   - Smooth Turn
   - Smooth Walk
   - Teleport
+  - SoundManager
   layers:
   - Default
   - TransparentFX

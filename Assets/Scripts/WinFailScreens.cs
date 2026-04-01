@@ -17,10 +17,13 @@ public class WinFailScreens : MonoBehaviour {
     [SerializeField] private GameObject failPanel;
     [SerializeField] private GameObject hudCanvas;
 
+    private SoundManager soundManager;
+
     void Start() {
         deviledEgg = GameObject.Find("Devilled Egg");
         winPanel.SetActive(false);
         failPanel.SetActive(false);
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
     private IEnumerator setHealth() {
@@ -41,7 +44,8 @@ public class WinFailScreens : MonoBehaviour {
     }
 
     private IEnumerator ShowWinScreen() {
-        yield return new WaitForSeconds(3);
+        soundManager.PlaySound(soundManager.win);
+        yield return new WaitForSeconds(2);
         winPanel.SetActive(true);
         hudCanvas.SetActive(false);
         playerImage.sprite = imageData.charPreviewImg[imageData.selectedIndex];
@@ -51,6 +55,7 @@ public class WinFailScreens : MonoBehaviour {
     }
 
     private void ShowFailScreen() {
+        soundManager.PlaySound(soundManager.loss);
         failPanel.SetActive(true);
         hudCanvas.SetActive(false);
         Time.timeScale = 0f;

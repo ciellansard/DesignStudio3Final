@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: -2638352925261552889}
   - component: {fileID: -4173462141252369718}
   - component: {fileID: 8696229874293229488}
+  - component: {fileID: -2745972351976373068}
   m_Layer: 6
   m_Name: Poached Egg
   m_TagString: Player
@@ -574,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306b043a3e7cd2345a5d68f5e5828e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 18
   currentHealth: 0
   hudScript: {fileID: 6992800050922426685}
 --- !u!114 &767175678870173410
@@ -661,6 +662,20 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: -0.14, z: 0}
+--- !u!114 &-2745972351976373068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700598883846432805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b44c886c60134d884738f0ac9919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenFootsteps: 0.3
+  maxTimeBetweenFootsteps: 0.6
 --- !u!1 &2702823648689024801
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +702,7 @@ Transform:
   m_GameObject: {fileID: 2702823648689024801}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.56, y: -0.01954633, z: 0.494}
+  m_LocalPosition: {x: 0.56, y: -0.15399998, z: 0.494}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1251,7 +1266,7 @@ Transform:
   m_GameObject: {fileID: 5840943376504136169}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.56, y: -0.01954633, z: 0.494}
+  m_LocalPosition: {x: -0.56, y: -0.154, z: 0.494}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children:

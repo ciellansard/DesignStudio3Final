@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1297691320925596418}
   - component: {fileID: 8806801286924268444}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: healingParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,8 +4,8 @@ using System.Diagnostics;
 
 public class scrambleHeal : MonoBehaviour
 {
-    public int healPoints = 2;
-    public int rechargeDuration = 2;
+    public int healPoints;
+    public int rechargeDuration;
     bool waitTime = true;
     Coroutine rechargeHeal;
     public GameObject player;
@@ -14,11 +14,14 @@ public class scrambleHeal : MonoBehaviour
 
     [SerializeField]
     private EggBarIcons hudScript;
+    private SoundManager soundManager;
 
     private void Awake()
     {
-        defaultHealth = player.GetComponent<CharacterHealth>().maxHealth;
         healEffect.Stop();
+        defaultHealth = player.GetComponent<CharacterHealth>().maxHealth;
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+        //soundManager.PlaySound(healingSound);
     }
 
     public void Heal()
@@ -32,12 +35,17 @@ public class scrambleHeal : MonoBehaviour
                 player.GetComponent<CharacterHealth>().currentHealth = player.GetComponent<CharacterHealth>().currentHealth + healPoints;
 
                 healEffect.Play();
+                soundManager.PlaySound(soundManager.healing);
+                soundManager.FadeOutSfx(1);
 
                 if (player.GetComponent<CharacterHealth>().currentHealth >= defaultHealth)
                 {
                     player.GetComponent<CharacterHealth>().currentHealth = defaultHealth;
                     UnityEngine.Debug.Log("Health full");
+                    soundManager.PlaySound(soundManager.cheers);
                 }
+
+                //UnityEngine.Debug.Log("hi");
                 rechargeHeal = StartCoroutine(RechargeWait(rechargeDuration));
             }
         }
@@ -52,7 +60,10 @@ public class scrambleHeal : MonoBehaviour
 
     private IEnumerator RechargeWait(float duration)
     {
+        //UnityEngine.Debug.Log("two");
         yield return new WaitForSeconds(duration);
+        //UnityEngine.Debug.Log("three");
         waitTime = true;
+        //UnityEngine.Debug.Log("four");
     }
 }

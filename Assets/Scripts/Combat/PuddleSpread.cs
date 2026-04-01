@@ -12,11 +12,14 @@ public class PuddleSpread : MonoBehaviour
     [SerializeField]
     private float speed = .5f;
     private Vector3 vectorSize;
+    private SoundManager soundManager;
+    //bool playDaThing = true;
 
     private void Awake()
     {
         transform.localScale = new Vector3(startSize, startSize, startSize);
         vectorSize = new Vector3(endSize, endSize, endSize);
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -51,8 +54,10 @@ public class PuddleSpread : MonoBehaviour
 
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<NavMeshAgent>().speed = 1f;
+            collision.gameObject.GetComponent<NavMeshAgent>().speed = 1f;       
         }
+
+        soundManager.PlaySound(soundManager.squishes);
     }
 
     private void OnCollisionExit(Collision collision)

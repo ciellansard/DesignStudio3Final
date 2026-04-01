@@ -15,12 +15,14 @@ public class PoachedAttack : MonoBehaviour
     private GameObject pCopy;
     float pHeight;
 
+    private SoundManager soundManager;
     public Coroutine rechargeProjectile;
 
     public void Awake()
     {
         //restPosition = this.transform.rotation;
         projectile.SetActive(false);
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
     public void Attack()
     {
@@ -34,6 +36,9 @@ public class PoachedAttack : MonoBehaviour
             pCopy.GetComponent<Rigidbody>().isKinematic = false;
             pCopy.SetActive(true);
             pCopy.GetComponent<Rigidbody>().linearVelocity = playerCam.transform.forward * 20;
+
+            soundManager.PlaySound(soundManager.wind);
+            soundManager.FadeOutSfx(1);
 
             rechargeProjectile = StartCoroutine(RechargeWait(projectile.GetComponent<WeaponData>().swingSpeed));
         }

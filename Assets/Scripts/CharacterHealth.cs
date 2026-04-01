@@ -10,13 +10,29 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField]
     private EggBarIcons hudScript;
     private bool isHit;
+    private SoundManager soundManager;
 
     private GameObject CurrentGameObject;
     private void Awake()
     {
         currentHealth = maxHealth;
-        if (hudScript  != null ) hudScript.SetMaxHP(maxHealth);
+        if (gameObject.CompareTag("Player"))
+        {
+            hudScript.SetMaxHP(maxHealth);
+        }
+        soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
+
+    //private void Update()
+    //{
+    //    if (gameObject.CompareTag("Player"))
+    //    {
+    //        if (currentHealth <= 0)
+    //        {
+    //            soundManager.PlaySound(soundManager.loss);
+    //        }
+    //    }
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,10 +44,11 @@ public class CharacterHealth : MonoBehaviour
             //Debug.Log("hit a harmful object");
             if (other.gameObject.TryGetComponent<WeaponData>(out WeaponData weapon)) currentHealth -= weapon.damage;
             if (gameObject.TryGetComponent<ParticleSystem>(out ParticleSystem particles)) particles.Play();
-
             //Debug.Log(weapon.damage);
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             if (hudScript != null) hudScript.UpdateHealth(currentHealth);
+            if (gameObject.CompareTag("Player")) soundManager.PlaySound(soundManager.hurts);
+            if (gameObject.CompareTag("Enemy")) soundManager.PlaySound(soundManager.impacts);
         }
     }
 

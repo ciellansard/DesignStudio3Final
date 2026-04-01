@@ -66,6 +66,7 @@ public class EnemyAI : MonoBehaviour
     private bool canCastPaprikaStorm = false;
     private bool paprikaStormTriggered = false;
 
+
     private void Awake()
     {
         UpdatePlayerList();
@@ -247,6 +248,7 @@ public class EnemyAI : MonoBehaviour
         part.GetComponent<Collider>().enabled = true;
         Debug.Log(part.name);
     }
+
 
     private void Die()
     {

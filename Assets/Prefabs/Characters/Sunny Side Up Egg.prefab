@@ -537,6 +537,7 @@ GameObject:
   - component: {fileID: -4173462141252369718}
   - component: {fileID: 6824451107207069299}
   - component: {fileID: 3422960325947457242}
+  - component: {fileID: 2614195697850409459}
   m_Layer: 6
   m_Name: Sunny Side Up Egg
   m_TagString: Player
@@ -703,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 306b043a3e7cd2345a5d68f5e5828e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 16
   currentHealth: 0
   hudScript: {fileID: 8864838909185787784}
 --- !u!54 &-2638352925261552889
@@ -790,6 +791,20 @@ MonoBehaviour:
   handSlotR: {fileID: 4941264952410645618}
   entityType: 1
   isAtacking: 0
+--- !u!114 &2614195697850409459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2700598883846432805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b44c886c60134d884738f0ac9919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenFootsteps: 0.3
+  maxTimeBetweenFootsteps: 0.6
 --- !u!1 &2735515469761024004
 GameObject:
   m_ObjectHideFlags: 0
