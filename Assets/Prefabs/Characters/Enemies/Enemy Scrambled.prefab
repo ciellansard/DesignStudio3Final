@@ -1273,6 +1273,7 @@ GameObject:
   - component: {fileID: -2032673338951413495}
   - component: {fileID: 117042977828000541}
   - component: {fileID: 4279194170963638679}
+  - component: {fileID: -2982664633400102788}
   m_Layer: 0
   m_Name: Enemy Scrambled
   m_TagString: Enemy
@@ -1332,6 +1333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   handSlotL: {fileID: 0}
   handSlotR: {fileID: 2588203829644705132}
   entityType: 4
@@ -6320,6 +6322,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2499104, y: 3.230106, z: 1.1399945}
   m_Center: {x: -0.012043476, y: 1.613268, z: -0.08800107}
+--- !u!114 &-2982664633400102788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878543262242385398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146b44c886c60134d884738f0ac9919a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenFootsteps: 0.3
+  maxTimeBetweenFootsteps: 0.6
 --- !u!1 &5132677000669277849
 GameObject:
   m_ObjectHideFlags: 0
