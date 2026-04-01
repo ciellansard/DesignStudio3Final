@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9032eb2faaf39b45ab302860146457c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 5
+  lifespan: 12
   timeOfCreation: 0
+  triggerRadius: 0.6
+  childCollider: {fileID: 8154783428323136869}
+  paprika: {fileID: 7052464130665717435}
 --- !u!1 &7052464130665717435
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,8 +62,9 @@ GameObject:
   - component: {fileID: 4623200196006450291}
   - component: {fileID: 6813546630485505445}
   - component: {fileID: 8154783428323136869}
-  - component: {fileID: 2542274051808608133}
   - component: {fileID: 5700303928321487865}
+  - component: {fileID: 2367447074814723525}
+  - component: {fileID: 3843400632701342508}
   m_Layer: 0
   m_Name: PaprikaSmall
   m_TagString: Harmful
@@ -158,7 +162,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8142103961466581206, guid: d77bf90b191e1ba45b8fb13c5cf5ee39, type: 3}
---- !u!54 &2542274051808608133
+--- !u!114 &5700303928321487865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052464130665717435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb71a15c9e2c2e448fd4cf14e3d92c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swingSpeed: 5
+  damage: 1
+--- !u!54 &2367447074814723525
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,17 +203,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5700303928321487865
-MonoBehaviour:
+--- !u!136 &3843400632701342508
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7052464130665717435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb71a15c9e2c2e448fd4cf14e3d92c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swingSpeed: 5
-  damage: 6
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}

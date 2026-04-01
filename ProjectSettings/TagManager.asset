@@ -8,6 +8,11 @@ TagManager:
   - Ground
   - Enemy
   - Slippery
+  - Simulator
+  - Snap Turn
+  - Smooth Turn
+  - Smooth Walk
+  - Teleport
   - SoundManager
   layers:
   - Default
@@ -17,7 +22,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - VolumeBlur
   - 
   - 
   - 

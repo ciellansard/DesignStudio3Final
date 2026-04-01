@@ -37,7 +37,7 @@ public class PaprikaStorm : MonoBehaviour
             if (Time.time > nextStormTime + stormDuration)
             {
                 nextStormTime = Time.time + Random.Range(minTimeBetweenStorms, maxTimeBetweenStorms);
-                Debug.Log("storm in " + (nextStormTime - Time.time) + " seconds.");
+                //Debug.Log("storm in " + (nextStormTime - Time.time) + " seconds.");
             }
 
             // From nextStormTime to nextStormTime + stormDuration, spawn paprika particles above the arena.
