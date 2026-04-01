@@ -7,6 +7,9 @@ using Unity.VisualScripting;
 public class AttackControl : MonoBehaviour
 {
     [SerializeField]
+    private CooldownUI cooldownUI;
+
+    [SerializeField]
     private GameObject handSlotL;
     [SerializeField]
     private GameObject handSlotR;
@@ -20,6 +23,7 @@ public class AttackControl : MonoBehaviour
     private void Awake()
     {
         if (GetComponent<SwordAttack>()) swordAttackScript = GetComponent<SwordAttack>();
+        if (cooldownUI != null) cooldownUI.GetComponent<CooldownUI>();
     }
     public void Attack(bool isMainAttack, int entityType)
     {
@@ -31,11 +35,17 @@ public class AttackControl : MonoBehaviour
                 // Hard boiled
                 case 0:
                     swordAttackScript.attack(handSlotR);
+                    // attacks too fast, no cooldown needed
+                    //Debug.Log(handSlotR.GetComponentInChildren<WeaponData>().swingSpeed);
+                    //cooldownUI.cooldownTimer(isMainAttack, handSlotR.GetComponentInChildren<WeaponData>().swingSpeed);
                     break;
 
                 // Sunny side up
                 case 1:
                     handSlotR.GetComponent<SunnyAttack>().Attack();
+                    //Debug.Log(handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
+                    // If lost, the inputs are this: cooldownTimer(isMainAttack, duration)
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
 
                 // Scrambled
@@ -79,12 +89,16 @@ public class AttackControl : MonoBehaviour
                 case 1:
                     // Throw salt
                     handSlotL.GetComponent<SunnyAttack>().Attack();
+                    Debug.Log(handSlotL.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotL.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
 
                 // Scrambled
                 case 2:
                     // Heal
                     handSlotL.GetComponent<scrambleHeal>().Heal();
+                    Debug.Log("Recharge timer: " + handSlotL.GetComponent<scrambleHeal>().rechargeDuration);
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotL.GetComponent<scrambleHeal>().rechargeDuration);
                     break;
 
                 // Poached

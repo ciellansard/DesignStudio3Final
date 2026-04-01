@@ -45,8 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9032eb2faaf39b45ab302860146457c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 5
+  lifespan: 12
   timeOfCreation: 0
+  triggerRadius: 1.2
+  childCollider: {fileID: 3614030370977499290}
+  paprika: {fileID: 8700529795914633513}
 --- !u!1 &8700529795914633513
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +64,7 @@ GameObject:
   - component: {fileID: 4803822079618487148}
   - component: {fileID: 3614030370977499290}
   - component: {fileID: 4186205616155594452}
+  - component: {fileID: 8727992782454704257}
   m_Layer: 0
   m_Name: PaprikaMedium
   m_TagString: Harmful
@@ -198,4 +202,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingSpeed: 5
-  damage: 8
+  damage: 2
+--- !u!136 &8727992782454704257
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8700529795914633513}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Height: 3
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
