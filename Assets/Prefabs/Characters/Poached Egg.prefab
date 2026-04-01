@@ -679,7 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
-  hudScript: {fileID: 0}
+  hudScript: {fileID: 4674287055711004894}
 --- !u!114 &767175678870173410
 MonoBehaviour:
   m_ObjectHideFlags: 0
