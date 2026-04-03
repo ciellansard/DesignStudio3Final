@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3039322558451059233}
   - component: {fileID: 6390540250530547578}
   - component: {fileID: 2606864503088188895}
+  - component: {fileID: 288140421238293832}
   m_Layer: 0
   m_Name: HandLeft
   m_TagString: Untagged
@@ -137,6 +138,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &288140421238293832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689787826365954861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1304288125651701575
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +163,7 @@ GameObject:
   - component: {fileID: 4135691482290347017}
   - component: {fileID: 2408859523493524193}
   - component: {fileID: 2548813765738349771}
+  - component: {fileID: 5810815178562543586}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -274,6 +288,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5810815178562543586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304288125651701575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1979993015390061000
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,6 +399,7 @@ GameObject:
   - component: {fileID: 2344995175696899300}
   - component: {fileID: 1796010720465637248}
   - component: {fileID: 568260173647542124}
+  - component: {fileID: 250855735990280628}
   m_Layer: 0
   m_Name: LegRight
   m_TagString: Untagged
@@ -498,6 +525,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &250855735990280628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3350554014671137638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3440865789581812670
 GameObject:
   m_ObjectHideFlags: 0
@@ -689,6 +728,7 @@ GameObject:
   - component: {fileID: 117042977828000541}
   - component: {fileID: 4279194170963638679}
   - component: {fileID: 248645223564847900}
+  - component: {fileID: 8145883862178694453}
   m_Layer: 0
   m_Name: Enemy Sunny Side Up
   m_TagString: Enemy
@@ -795,7 +835,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1362856192393418514
@@ -5731,8 +5771,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2499104, y: 4.150241, z: 1.1399945}
-  m_Center: {x: -0.012043476, y: 2.4548264, z: -0.08800107}
+  m_Size: {x: 1.2499104, y: 4.523568, z: 1.1399945}
+  m_Center: {x: -0.012043476, y: 2.2681627, z: -0.08800107}
 --- !u!114 &248645223564847900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5747,6 +5787,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minTimeBetweenFootsteps: 0.3
   maxTimeBetweenFootsteps: 0.6
+--- !u!114 &8145883862178694453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3878543262242385398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4174263747534949758
 GameObject:
   m_ObjectHideFlags: 0
@@ -5760,6 +5812,7 @@ GameObject:
   - component: {fileID: 27019300508936596}
   - component: {fileID: 6518484409084941030}
   - component: {fileID: 2046434811824109858}
+  - component: {fileID: 9154074327550446016}
   m_Layer: 0
   m_Name: LegLeft
   m_TagString: Untagged
@@ -5885,6 +5938,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &9154074327550446016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4174263747534949758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5854450662449102508
 GameObject:
   m_ObjectHideFlags: 0
@@ -5898,6 +5963,7 @@ GameObject:
   - component: {fileID: 2958144574005719693}
   - component: {fileID: 4452766820956624129}
   - component: {fileID: 7876084166542285275}
+  - component: {fileID: 5534400186780967377}
   m_Layer: 0
   m_Name: HandRight
   m_TagString: Untagged
@@ -6022,6 +6088,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5534400186780967377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5854450662449102508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7094145295453895761
 GameObject:
   m_ObjectHideFlags: 0
@@ -6258,6 +6336,7 @@ GameObject:
   - component: {fileID: 6666921542465803124}
   - component: {fileID: 307916595083055025}
   - component: {fileID: 5787164129747029623}
+  - component: {fileID: 5124865571961638651}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -6383,6 +6462,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0039852643
   m_Center: {x: 0, y: -0.00005179784, z: 7.7184786e-13}
+--- !u!114 &5124865571961638651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7398372589090791171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a658bb91de51e1b40a36846ab452d96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8145520928254641664
 GameObject:
   m_ObjectHideFlags: 0
