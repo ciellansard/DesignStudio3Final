@@ -31,11 +31,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8414437602130897031}
-  m_Father: {fileID: 5939056507783004019}
+  m_Father: {fileID: 3384818682875726875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: -119.999985}
+  m_AnchoredPosition: {x: 312.99997, y: -137.99998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1322159566273182539
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1294366778498216345}
+      - m_Target: {fileID: 1417174067283807963}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
@@ -233,7 +233,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122197968762737930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1294366778498216345}
+      - m_Target: {fileID: 1417174067283807963}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitToDesktop
         m_Mode: 1
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   deviledEgg: {fileID: 0}
   winPanel: {fileID: 5882451930854090417}
   failPanel: {fileID: 4715154768670676245}
-  hudCanvas: {fileID: 8587920668992758138}
+  hudCanvas: {fileID: 6996022708850940455}
 --- !u!1 &4439459470177682641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,7 +1326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1318925126795626378}
-  - component: {fileID: 1294366778498216345}
+  - component: {fileID: 1417174067283807963}
   m_Layer: 5
   m_Name: script
   m_TagString: Untagged
@@ -1353,7 +1353,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1294366778498216345
+--- !u!114 &1417174067283807963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1365,8 +1365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97479ba572c96649927fad07b20d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 8148547907923139384}
   pauseMenuPanel: {fileID: 4065475126818819184}
-  hudCanvas: {fileID: 8587920668992758138}
+  hudCanvas: {fileID: 6996022708850940455}
 --- !u!1 &5332175255282708707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,7 +1773,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1294366778498216345}
+      - m_Target: {fileID: 1417174067283807963}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitToMenu
         m_Mode: 1
@@ -1784,6 +1785,44 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &6996022708850940455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3384818682875726875}
+  m_Layer: 5
+  m_Name: Hud_Stuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3384818682875726875
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6996022708850940455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3223660676585687749}
+  - {fileID: 8414727617612796900}
+  - {fileID: 3996284389569858575}
+  m_Father: {fileID: 5939056507783004019}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -13, y: 18.000008}
+  m_SizeDelta: {x: 726, y: 376}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7942964889922193670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,11 +1854,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3943005999629982314}
-  m_Father: {fileID: 5939056507783004019}
+  m_Father: {fileID: 3384818682875726875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: -119.999985}
+  m_AnchoredPosition: {x: -287, y: -137.99998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9145437972089021263
@@ -1994,16 +2033,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8366907452571063953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.32, y: 0.32, z: 0.32}
+  m_LocalScale: {x: 0.31999996, y: 0.31999996, z: 0.31999996}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5939056507783004019}
+  m_Father: {fileID: 3384818682875726875}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -360, y: 190}
+  m_AnchoredPosition: {x: -347.00003, y: 172.00003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8374872245726319851
@@ -2063,10 +2102,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3223660676585687749}
   - {fileID: 1637598187952303260}
-  - {fileID: 8414727617612796900}
-  - {fileID: 3996284389569858575}
+  - {fileID: 3384818682875726875}
   m_Father: {fileID: 6133218454036685525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

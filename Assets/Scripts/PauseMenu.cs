@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
+    [SerializeField] private CooldownUI cooldownUI;
+
     [SerializeField] private GameObject pauseMenuPanel;
     [SerializeField] private GameObject hudCanvas;
 
@@ -18,6 +20,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void PauseGame() {
+        cooldownUI.OnPause();
         pauseMenuPanel.SetActive(true);
         hudCanvas.SetActive(false);
         Time.timeScale = 0f;
@@ -27,6 +30,7 @@ public class PauseMenu : MonoBehaviour {
     }
 
     public void ResumeGame() {
+        cooldownUI.OnResume();
         pauseMenuPanel.SetActive(false);
         hudCanvas.SetActive(true);
         Time.timeScale = 1f;
