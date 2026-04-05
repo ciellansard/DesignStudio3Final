@@ -441,7 +441,7 @@ RectTransform:
   m_GameObject: {fileID: 859862931860491655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.43431, y: 0.43431, z: 0.43431}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1740257465458262732}
@@ -516,7 +516,7 @@ RectTransform:
   m_GameObject: {fileID: 943143527708878382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.44315, y: 0.44315, z: 0.44315}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8376089314919737852}
@@ -823,7 +823,7 @@ RectTransform:
   m_GameObject: {fileID: 1591696920668293329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.43432, y: 0.43432, z: 0.43432}
+  m_LocalScale: {x: 0.9410411, y: 0.9410411, z: 0.9410411}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6417577080723028476}
@@ -1553,7 +1553,7 @@ RectTransform:
   m_GameObject: {fileID: 5493170435709469535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.43431, y: 0.43431, z: 0.43431}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1740257465458262732}
@@ -1628,7 +1628,7 @@ RectTransform:
   m_GameObject: {fileID: 5588911800183210273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.43432, y: 0.43432, z: 0.43432}
+  m_LocalScale: {x: 0.9641035, y: 0.9641035, z: 0.9641035}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7555920156713572959}
@@ -2127,7 +2127,7 @@ RectTransform:
   m_GameObject: {fileID: 7122363990444344020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.59256, y: 4.59256, z: 4.59256}
+  m_LocalScale: {x: 2.035193, y: 2.035193, z: 2.035193}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8376089314919737852}
