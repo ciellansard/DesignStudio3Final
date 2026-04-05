@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     [Header("SIGHT")]
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-    GameObject closestPlayer;
+    //GameObject closestPlayer;
     Rigidbody rb;
 
     [Header("DEATH")]
@@ -103,15 +103,15 @@ public class EnemyAI : MonoBehaviour
 
         WalkPointUpdateY();
         if (player != null) {
-            closestPlayer = GetNearestPlayer();
+            
 
             //just checks if a player is in range
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
             if (!playerInAttackRange && !playerInSightRange) Patrol();
-            if (!playerInAttackRange && playerInSightRange) ChasePlayer(closestPlayer.transform);
-            if (playerInAttackRange && playerInSightRange) AttackPlayer(closestPlayer.transform);
+            if (!playerInAttackRange && playerInSightRange) ChasePlayer(player.transform);
+            if (playerInAttackRange && playerInSightRange) AttackPlayer(player.transform);
         }
         else Patrol();
 
