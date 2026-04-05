@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("NAVIGATION")]
     public NavMeshAgent agent;
-    public GameObject[] players;
+    public GameObject player;
 
     public LayerMask whatIsGround, whatIsPlayer;
 
@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     [Header("SIGHT")]
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
-    GameObject closestPlayer;
+    //GameObject closestPlayer;
     Rigidbody rb;
 
     [Header("DEATH")]
@@ -99,17 +99,19 @@ public class EnemyAI : MonoBehaviour
             Die();
         }
 
+        UpdatePlayerList();
+
         WalkPointUpdateY();
-        if (players.Length > 0) {
-            closestPlayer = GetNearestPlayer();
+        if (player != null) {
+            
 
             //just checks if a player is in range
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
             playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
             if (!playerInAttackRange && !playerInSightRange) Patrol();
-            if (!playerInAttackRange && playerInSightRange) ChasePlayer(closestPlayer.transform);
-            if (playerInAttackRange && playerInSightRange) AttackPlayer(closestPlayer.transform);
+            if (!playerInAttackRange && playerInSightRange) ChasePlayer(player.transform);
+            if (playerInAttackRange && playerInSightRange) AttackPlayer(player.transform);
         }
         else Patrol();
 
@@ -123,14 +125,11 @@ public class EnemyAI : MonoBehaviour
     {
         GameObject closest = null;
         float smallestDistance = 999999999;
-        foreach (var player in players)
+        float distance = (transform.position - player.transform.position).magnitude;
+        if (distance < smallestDistance)
         {
-            float distance = (transform.position - player.transform.position).magnitude;
-            if (distance < smallestDistance)
-            {
-                smallestDistance = distance;
-                closest = player;
-            }
+            smallestDistance = distance;
+            closest = player;
         }
         //Debug.Log(closest);
         return closest;
@@ -291,6 +290,6 @@ public class EnemyAI : MonoBehaviour
 
     public void UpdatePlayerList()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 }

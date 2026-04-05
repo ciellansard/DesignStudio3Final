@@ -18,8 +18,9 @@ public class CooldownUI : MonoBehaviour {
     private float leftTimeRemaining = 0f;
 
     void Start() {
-        abilityCoolLeft.gameObject.SetActive(false); 
-        abilityCoolRight.gameObject.SetActive(false); 
+        //added a check here for the hardboiled and scrambled, as their melee weapons dont need a cooldown (at least in vr)
+        if (abilityCoolLeft != null) abilityCoolLeft.gameObject.SetActive(false); 
+        if (abilityCoolRight != null) abilityCoolRight.gameObject.SetActive(false); 
     }
 
 
