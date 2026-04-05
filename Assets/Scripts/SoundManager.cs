@@ -47,7 +47,7 @@ public class SoundManager : MonoBehaviour
     {
         if (clip != null)
         {
-            //sfxSource.volume = 5;
+         //   sfxSource.volume = 5;
             sfxSource.PlayOneShot(clip);
 
         }

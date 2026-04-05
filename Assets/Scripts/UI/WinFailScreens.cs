@@ -44,8 +44,11 @@ public class WinFailScreens : MonoBehaviour {
     }
 
     private IEnumerator ShowWinScreen() {
-        soundManager.PlaySound(soundManager.win);
         yield return new WaitForSeconds(2);
+
+        soundManager.PlaySound(soundManager.win);
+        soundManager.FadeOutSfx(2);
+
         winPanel.SetActive(true);
         hudCanvas.SetActive(false);
         playerImage.sprite = imageData.charPreviewImg[imageData.selectedIndex];
@@ -55,7 +58,10 @@ public class WinFailScreens : MonoBehaviour {
     }
 
     private void ShowFailScreen() {
+
         soundManager.PlaySound(soundManager.loss);
+        soundManager.FadeOutSfx(1);
+
         failPanel.SetActive(true);
         hudCanvas.SetActive(false);
         Time.timeScale = 0f;
