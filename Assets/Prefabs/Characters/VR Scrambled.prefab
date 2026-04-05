@@ -688,7 +688,7 @@ MonoBehaviour:
   rechargeDuration: 2
   player: {fileID: 1741434228876057399}
   healEffect: {fileID: 2379569124775460823}
-  hudScript: {fileID: 0}
+  hudScript: {fileID: 8083984212024331046}
 --- !u!1 &1306444157329655528
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownUI: {fileID: 0}
+  cooldownUI: {fileID: 1155631784524234867}
   handSlotL: {fileID: 1288084136906718407}
   handSlotR: {fileID: 1306444157329655528}
   entityType: 2
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   currentHealth: 0
-  hudScript: {fileID: 0}
+  hudScript: {fileID: 8083984212024331046}
 --- !u!114 &9216060300280086576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2080,8 +2080,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97479ba572c96649927fad07b20d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 1155631784524234867}
   pauseMenuPanel: {fileID: 7169693014481256470}
-  hudCanvas: {fileID: 0}
+  hudCanvas: {fileID: 3434697732559225644}
 --- !u!1 &5851319583511915131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,11 +3965,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageData: {fileID: 11400000, guid: a48a6f8baee6d0442b2ee11f5c54b662, type: 2}
   playerImage: {fileID: 3280500085773071249}
-  player: {fileID: 0}
+  player: {fileID: 1741434228876057399}
   deviledEgg: {fileID: 0}
   winPanel: {fileID: 1591696920668293329}
   failPanel: {fileID: 5588911800183210273}
-  hudCanvas: {fileID: 0}
+  hudCanvas: {fileID: 3434697732559225644}
 --- !u!1001 &585771769394106649
 PrefabInstance:
   m_ObjectHideFlags: 0

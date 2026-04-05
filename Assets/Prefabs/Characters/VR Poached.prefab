@@ -701,11 +701,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   imageData: {fileID: 11400000, guid: a48a6f8baee6d0442b2ee11f5c54b662, type: 2}
   playerImage: {fileID: 4802548381238854952}
-  player: {fileID: 0}
+  player: {fileID: 1741434228876057399}
   deviledEgg: {fileID: 0}
   winPanel: {fileID: 8734290393689931368}
   failPanel: {fileID: 2499344511991429016}
-  hudCanvas: {fileID: 0}
+  hudCanvas: {fileID: 4650747678256444821}
 --- !u!1 &1288084136906718407
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 18
   currentHealth: 0
-  hudScript: {fileID: 0}
+  hudScript: {fileID: 2238480277983296927}
 --- !u!114 &7803035704869111384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,6 +1713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97479ba572c96649927fad07b20d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   pauseMenuPanel: {fileID: 891542250087757487}
   hudCanvas: {fileID: 0}
 --- !u!1 &2499344511991429016
@@ -2636,8 +2637,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e7baa701e7bbaef4bb3e863e3d230fcc, type: 2}
+  m_sharedMaterial: {fileID: -8968032732790997706, guid: e7baa701e7bbaef4bb3e863e3d230fcc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4398,8 +4399,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e7baa701e7bbaef4bb3e863e3d230fcc, type: 2}
+  m_sharedMaterial: {fileID: -8968032732790997706, guid: e7baa701e7bbaef4bb3e863e3d230fcc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
