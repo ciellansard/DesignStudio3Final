@@ -35,7 +35,7 @@ public class WinFailScreens : MonoBehaviour {
 
     void Update() {
         StartCoroutine(setHealth());
-        Debug.Log("PlayerHealth: " + playerHealth);
+        //Debug.Log("PlayerHealth: " + playerHealth);
         //Debug.Log("DevilHealth: " + deviledEggHealth);
         if (playerHealth <= 0)
             ShowFailScreen();

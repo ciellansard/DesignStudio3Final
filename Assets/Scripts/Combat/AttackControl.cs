@@ -43,7 +43,7 @@ public class AttackControl : MonoBehaviour
                 // Sunny side up
                 case 1:
                     handSlotR.GetComponent<SunnyAttack>().Attack();
-                    //Debug.Log(handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
+                    Debug.Log(handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     // If lost, the inputs are this: cooldownTimer(isMainAttack, duration)
                     cooldownUI.cooldownTimer(isMainAttack, handSlotR.GetComponent<SunnyAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
@@ -58,6 +58,7 @@ public class AttackControl : MonoBehaviour
                 case 3:
                     handSlotR.GetComponent<PoachedAttack>().Attack();
                     Debug.Log("poached egg attacks!");
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotL.GetComponent<PoachedAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
 
                 // Goon
@@ -105,6 +106,7 @@ public class AttackControl : MonoBehaviour
                 case 3:
                     // Cast yolk trap
                     handSlotL.GetComponent<PoachedAttack>().Attack();
+                    cooldownUI.cooldownTimer(isMainAttack, handSlotL.GetComponent<PoachedAttack>().projectile.GetComponent<WeaponData>().swingSpeed);
                     break;
 
                 // Goon

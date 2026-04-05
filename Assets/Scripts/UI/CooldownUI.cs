@@ -11,6 +11,12 @@ public class CooldownUI : MonoBehaviour {
     private bool rightOnCooldown = false;
     private bool leftOnCooldown = false;
 
+    private Coroutine leftCooldown;
+    private Coroutine rightCooldown;
+
+    private float rightTimeRemaining = 0f;
+    private float leftTimeRemaining = 0f;
+
     void Start() {
         abilityCoolLeft.gameObject.SetActive(false); 
         abilityCoolRight.gameObject.SetActive(false); 
@@ -39,16 +45,37 @@ public class CooldownUI : MonoBehaviour {
         display.gameObject.SetActive(true);
 
         // count down
-        for (int i = (int)duration; i > 0; i--) {
-            display.text = i.ToString();
-            yield return new WaitForSeconds(1f);
+        float timeRemaining = duration;
+        while (timeRemaining > 0) {
+            // save remaining time each frame to resume after pause
+            if (isMainAttack) rightTimeRemaining = timeRemaining;
+            else leftTimeRemaining = timeRemaining;
+
+            display.text = Mathf.CeilToInt(timeRemaining).ToString();
+            timeRemaining -= Time.deltaTime;
+            // wait one frame at a time
+            yield return null; 
         }
 
-        // hicde
+        // hide
         display.gameObject.SetActive(false);
 
         // clear the correct check when cooldown finishes
         if (isMainAttack) rightOnCooldown = false;
         else leftOnCooldown = false;
+    }
+
+    public void OnPause() {
+        // stop coroutines
+        if (rightCooldown != null) StopCoroutine(rightCooldown);
+        if (leftCooldown != null) StopCoroutine(leftCooldown);
+    }
+
+    public void OnResume() {
+        // restart coroutines from saved remaining time
+        if (rightOnCooldown)
+            rightCooldown = StartCoroutine(RunCooldown(abilityCoolRight, rightTimeRemaining, true));
+        if (leftOnCooldown)
+            leftCooldown = StartCoroutine(RunCooldown(abilityCoolLeft, leftTimeRemaining, false));
     }
 }

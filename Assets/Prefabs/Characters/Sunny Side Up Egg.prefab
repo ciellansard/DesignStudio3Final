@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownUI: {fileID: 0}
+  cooldownUI: {fileID: 511245614522186332}
   handSlotL: {fileID: 5571059623530870163}
   handSlotR: {fileID: 4941264952410645618}
   entityType: 1
@@ -2050,6 +2050,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eb3a899b1d6f3248ac558f03b386ec7, type: 3}
+--- !u!114 &511245614522186332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8148547907923139384, guid: 1eb3a899b1d6f3248ac558f03b386ec7, type: 3}
+  m_PrefabInstance: {fileID: 8506519091191800164}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322c9d1c9ca3d2747bf1009c4f340595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2526708210923652017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6133218454036685525, guid: 1eb3a899b1d6f3248ac558f03b386ec7, type: 3}
