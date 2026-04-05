@@ -3539,6 +3539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97479ba572c96649927fad07b20d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   pauseMenuPanel: {fileID: 8438197711682069507}
   hudCanvas: {fileID: 4165586323771221817}
 --- !u!1 &6511911195735729994

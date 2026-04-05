@@ -117,6 +117,14 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void StopMusic()
+    {
+        if (musicSource != null)
+        {
+            musicSource.Stop();
+        }
+    }
+
     // Set background music
     public void PlayMusic(AudioClip music)
     {

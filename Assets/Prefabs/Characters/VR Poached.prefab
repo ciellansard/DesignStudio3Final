@@ -1713,6 +1713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97479ba572c96649927fad07b20d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cooldownUI: {fileID: 0}
   pauseMenuPanel: {fileID: 891542250087757487}
   hudCanvas: {fileID: 0}
 --- !u!1 &2499344511991429016

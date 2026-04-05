@@ -44,6 +44,8 @@ public class WinFailScreens : MonoBehaviour {
     }
 
     private IEnumerator ShowWinScreen() {
+        soundManager.StopMusic();
+
         yield return new WaitForSeconds(2);
 
         soundManager.PlaySound(soundManager.win);
@@ -58,6 +60,7 @@ public class WinFailScreens : MonoBehaviour {
     }
 
     private void ShowFailScreen() {
+        soundManager.StopMusic();
 
         soundManager.PlaySound(soundManager.loss);
         soundManager.FadeOutSfx(1);
@@ -72,6 +75,9 @@ public class WinFailScreens : MonoBehaviour {
     public void BackToMenu() {
         winPanel.SetActive(false);
         failPanel.SetActive(false);
+
+        soundManager.PlayMusic(soundManager.beautifulJazz);
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("startupMenu");
     }
