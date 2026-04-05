@@ -1709,11 +1709,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: cb1041272ca698044accf27f32cd12a2, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -6872,7 +6872,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e3a6f2fefce2684c9e92eb27cd1fd5b, type: 3}
   - {fileID: 8300000, guid: ed1e7c5a67935d045b6bc8d36ae4a990, type: 3}
   - {fileID: 8300000, guid: ec958cd76d6bb2f49a26119e0fa570b4, type: 3}
-  loss: {fileID: 8300000, guid: 77a08462724e28a47afd205a25a5901c, type: 3}
+  loss: {fileID: 8300000, guid: f9a5970dfabebaf44a8b3cb3a34c8e55, type: 3}
   splashes:
   - {fileID: 8300000, guid: e397440a4c7de0845bf65f8faab147b9, type: 3}
   - {fileID: 8300000, guid: f839bd63b5a54bb459a77c086dd42b19, type: 3}
@@ -6897,7 +6897,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 198d4a58100a93c4c86835c4292d0cc6, type: 3}
   - {fileID: 8300000, guid: 48285709d979dd9468606969af41ce93, type: 3}
   - {fileID: 8300000, guid: e0945583d75a43348a395ed531059d8c, type: 3}
-  urDad: {fileID: 0}
+  beautifulJazz: {fileID: 8300000, guid: cb1041272ca698044accf27f32cd12a2, type: 3}
 --- !u!4 &1079005719
 Transform:
   m_ObjectHideFlags: 0

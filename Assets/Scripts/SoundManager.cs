@@ -30,7 +30,7 @@ public class SoundManager : MonoBehaviour
     public List<AudioClip> wind =  new List<AudioClip>();
 
     [Header("Music")]
-    public AudioClip urDad;
+    public AudioClip beautifulJazz;
 
     void Awake()
     {
