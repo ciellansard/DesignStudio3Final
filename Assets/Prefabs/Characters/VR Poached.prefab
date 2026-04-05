@@ -1225,7 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3811c80a69ddd8949b016cd421a62524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownUI: {fileID: 0}
+  cooldownUI: {fileID: 9162883231531218634}
   handSlotL: {fileID: 1288084136906718407}
   handSlotR: {fileID: 1306444157329655528}
   entityType: 3
@@ -1713,9 +1713,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97479ba572c96649927fad07b20d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownUI: {fileID: 0}
+  cooldownUI: {fileID: 9162883231531218634}
   pauseMenuPanel: {fileID: 891542250087757487}
-  hudCanvas: {fileID: 0}
+  hudCanvas: {fileID: 4650747678256444821}
 --- !u!1 &2499344511991429016
 GameObject:
   m_ObjectHideFlags: 0
