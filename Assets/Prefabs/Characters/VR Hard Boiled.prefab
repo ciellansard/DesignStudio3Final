@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Camera: {fileID: 6147672661478255661}
   m_OriginBaseGameObject: {fileID: 1741434228876057399}
   m_CameraFloorOffsetObject: {fileID: 4974473545083779961}
-  m_RequestedTrackingOriginMode: 0
+  m_RequestedTrackingOriginMode: 2
   m_CameraYOffset: 3
 --- !u!114 &6769108115184890830
 MonoBehaviour:
@@ -2681,7 +2681,7 @@ PrefabInstance:
       objectReference: {fileID: 3801276116151439269}
     - target: {fileID: 290418550300716874, guid: 54c57b3aafbafd746908590d9d46f5ec, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1059977850298655042, guid: 54c57b3aafbafd746908590d9d46f5ec, type: 3}
       propertyPath: m_Camera
