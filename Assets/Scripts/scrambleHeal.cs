@@ -48,6 +48,7 @@ public class scrambleHeal : MonoBehaviour
                 //UnityEngine.Debug.Log("hi");
                 rechargeHeal = StartCoroutine(RechargeWait(rechargeDuration));
             }
+            else { waitTime = true;}
         }
         else
         {

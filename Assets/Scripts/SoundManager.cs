@@ -30,7 +30,7 @@ public class SoundManager : MonoBehaviour
     public List<AudioClip> wind =  new List<AudioClip>();
 
     [Header("Music")]
-    public AudioClip urDad;
+    public AudioClip beautifulJazz;
 
     void Awake()
     {
@@ -47,7 +47,7 @@ public class SoundManager : MonoBehaviour
     {
         if (clip != null)
         {
-            //sfxSource.volume = 5;
+         //   sfxSource.volume = 5;
             sfxSource.PlayOneShot(clip);
 
         }
@@ -114,6 +114,14 @@ public class SoundManager : MonoBehaviour
         if (sfxSource != null)
         {
             sfxSource.Stop();
+        }
+    }
+
+    public void StopMusic()
+    {
+        if (musicSource != null)
+        {
+            musicSource.Stop();
         }
     }
 
